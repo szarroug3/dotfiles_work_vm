@@ -1,0 +1,37 @@
+#! /bin/sh
+
+# pick a random colorfile on start
+# set wallpaper
+
+walls=$HOME/.Xresources.d/walls
+dir=$HOME/.Xresources.d/colors
+filename=$HOME/.Xresources.d/.colors
+curcol=$(awk 'NR==5{gsub(/>/," ");print $2}' $filename | cut -d '/' -f6)
+
+pik() {
+	cd $dir
+	ls|sort -R|tail -1|while read file; do
+		sed -i "s/$curcol/$file/g" $filename
+	done
+	cd $HOME
+	xrdb -merge ~/.Xresources
+}
+setwall() {
+	wallpaper=$(awk 'NR==5{gsub(/</," ");print $2}' $HOME/.Xresources.d/.colors | cut -d '/' -f6 | rev | cut -c 2- | rev)
+	match="hsetroot -fill $walls/$wallpaper.jpg -blur 5"
+	default="hsetroot -fill $walls/default.jpg"
+
+	if [ -f "$walls/$wallpaper.jpg" ]; then
+		$match
+	else
+		$default
+	fi
+}
+showme() {
+	printcol=$(awk 'NR==5{gsub(/</," ");print $2}' $HOME/.Xresources.d/.colors | cut -d '/' -f6 | rev | cut -c 2- | rev)
+	notify-send "palette in use - $printcol"
+}
+
+pik
+setwall
+showme

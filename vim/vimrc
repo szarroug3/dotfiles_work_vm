@@ -1,0 +1,173 @@
+" Must be at the top
+filetype off
+" End of must be at the top
+
+" Auto install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" YCM auto compile
+function! BuildYCM(info)
+    " info is adictionary with 3 fields
+    " - name:   name of the plugin
+    " - status: 'installed', 'updated', or 'unchanged'
+    " - force:  set on PlugInstall! or PlugUpdate!
+    if a:info.status == 'installed' || a:info.force
+        !./install.py
+    endif
+endfunction
+
+" initialize plugins
+call plug#begin('~/.vim/plugged')
+" Make matching parentheses colored the same
+Plug 'kien/rainbow_parentheses.vim'
+" Fancy start screen
+Plug 'mhinz/vim-startify'
+" Use ack in vim
+Plug 'mileszs/ack.vim'
+" Block commenting
+Plug 'scrooloose/nerdcommenter'
+" Tree directory
+Plug 'scrooloose/nerdtree'
+" Change surroundings like brackets
+Plug 'tpope/vim-surround'
+" Scratchpad
+Plug 'vim-scripts/scratch.vim'
+" Better copy and paste
+Plug 'vim-scripts/yankring.vim'
+" Code complete
+Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
+" Graphical undo list
+Plug 'sjl/gundo.vim'
+" Syntax checker
+Plug 'vim-syntastic/syntastic'
+call plug#end()
+
+" Make Nerdtree and Startify both work on startup
+autocmd VimEnter *
+    \ if !argc()
+    \ | Startify
+    \ | NERDTree
+    \ | wincmd w
+    \ | endif
+
+filetype plugin indent on
+
+" Because we're not in the 90s
+set nocompatible
+
+" Stop modeline exploits
+set modelines=0
+
+" Tab settings
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Make life better
+set encoding=utf-8
+set scrolloff=3
+set autoindent
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+set undofile
+
+" Change leader from \ to ,
+let mapleader = ","
+
+" Change searching/moving
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+" Handle long lines
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=101
+
+" Stop being a nub
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" Stop accidentally hitting help instead of esc
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Use ; like :
+nnoremap ; :
+
+" Save on unfocus
+au FocusLost * :wa
+
+" Rainbow parentheses always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Leader shortcuts cuz lazy
+" remove all trailing whitespace in file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" Ack
+nnoremap <leader>a :Ack
+" select text that was just pasted
+nnoremap <leader>v V']
+" open up vimrc in a split window
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+" open a new vertical split window and focus it
+nnoremap <leader>v <C-w>v<C-w>l
+" open a new horizontal split window and focus it
+nnoremap <leader>h <C-w>s<C-w>l
+
+" Use jj to switch back to normal mode from insert mode
+inoremap jj <ESC>
+
+" Move around split windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Get eclim to work with YCM
+let g:EclimCompletionMethod='omnifunc'
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
