@@ -16,6 +16,7 @@ ln -sf ${BASEDIR}/Xresources $HOME/.Xresources
 ln -sf ${BASEDIR}/Xresources.d $HOME/.Xresources.d
 
 # i3
+rm -rf $HOME/.config/i3
 ln -sf ${BASEDIR}/i3 $HOME/.config/i3
 
 # compton
