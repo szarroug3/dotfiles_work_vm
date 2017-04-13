@@ -13,6 +13,7 @@ ln -sf ${BASEDIR}/xinitrc $HOME/.xinitrc
 ln -sf ${BASEDIR}/Xresources $HOME/.Xresources
 
 # Xresources.d
+rm -rf $HOME/.Xresources.d
 ln -sf ${BASEDIR}/Xresources.d $HOME/.Xresources.d
 
 # i3
@@ -38,4 +39,5 @@ ln -sf ${BASEDIR}/zsh/zshrc $HOME/.zshrc
 ln -sf ${BASEDIR}/vim/vimrc $HOME/.vimrc
 
 # bin
+rm -rf $HOME/bin
 ln -sf ${BASEDIR}/bin $HOME/bin
