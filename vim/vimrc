@@ -160,6 +160,14 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Do common things without entering insert mode
+" press enter to insert new line without entering insert mode
+nmap <CR> i<CR><Esc>
+" press tab to insert tab without entering mode
+nmap <tab> i<tab><Esc>
+" press backspace to erase one letter backwards
+nnoremap <backspace> hx<Esc>
+
 " Get eclim to work with YCM
 let g:EclimCompletionMethod='omnifunc'
 
@@ -171,3 +179,4 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
+let g:syntastic_aggregate_errors = 1

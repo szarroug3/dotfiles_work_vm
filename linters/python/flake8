@@ -1,0 +1,6 @@
+[flake8]
+max-line-length=100
+
+ignore = E731
+exclude = 
+    # Want to be able to use lambda for simple one line functions

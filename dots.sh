@@ -41,3 +41,11 @@ ln -sf ${BASEDIR}/vim/vimrc $HOME/.vimrc
 # bin
 rm -rf $HOME/bin
 ln -sf ${BASEDIR}/bin $HOME/bin
+
+#.....................
+# Linters
+# ...................
+
+# python
+ln -sf ${BASEDIR}/linters/python/flake8 $HOME/.config/flake8
+ln -sf ${BASEDIR}/linters/python/pylintrc $HOME/.config/.pylintrc
