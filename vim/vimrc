@@ -139,7 +139,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Leader shortcuts cuz lazy
 " remove all trailing whitespace in file
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>:w<CR>
 " Ack
 nnoremap <leader>a :Ack
 " select text that was just pasted
@@ -161,12 +161,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Do common things without entering insert mode
-" press enter to insert new line without entering insert mode
+" press enter to insert new line
 nmap <CR> i<CR><Esc>
-" press tab to insert tab without entering mode
+" press tab to insert tab
 nmap <tab> i<tab><Esc>
 " press backspace to erase one letter backwards
-nnoremap <backspace> hx<Esc>
+nnoremap <backspace> X<Esc>
 
 " Get eclim to work with YCM
 let g:EclimCompletionMethod='omnifunc'
@@ -180,3 +180,4 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_pylint_args='--rcfile=~/.config/.pylintrc'
