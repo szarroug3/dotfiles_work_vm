@@ -20,3 +20,7 @@ random-color-picker
 vim
 * [vim-plug](https://github.com/junegunn/vim-plug)
 * run vim after getting vim-plug and run :PlugInstall
+
+Linters
+* pylint (python2-pylint for python2 or python-pylint for python3)
+* flake8
