@@ -9,6 +9,7 @@ General
 * [lemonbar-xft](https://aur.archlinux.org/packages/lemonbar-xft-git/)
 * zsh (set as your default shell)
 * update your PATH to include $HOME/bin
+* compton
 
 Fonts
 * [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/)
