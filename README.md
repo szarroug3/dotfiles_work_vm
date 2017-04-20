@@ -1,4 +1,4 @@
-# Dotfiles for Arch, i3-gaps, and lemonbar
+# Dotfiles for Arch, i3-gaps, and lemonbar-xft
 A lot of this was taken from [okubax's dotfiles](https://github.com/okubax/dotfiles)
 
 # Requirements
