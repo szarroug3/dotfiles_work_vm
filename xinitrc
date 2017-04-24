@@ -7,7 +7,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xrdb -merge $HOME/.Xresources &
+xrdb -merge ~/.Xresources &
 xrandr --output VGA-1 --auto &
 compton --config ~/.config/compton.conf -b &
 /home/samreen/.Xresources.d/random-color-picker &
