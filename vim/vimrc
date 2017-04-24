@@ -181,3 +181,25 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_pylint_args='--rcfile=~/.config/.pylintrc'
+
+" Startify settings
+let g:ascii = [
+    \ '                                    o',
+    \ '               _,=.=,_             o',
+    \ '             ,''=.     `\___,      o',
+    \ '            /    \  (0     |    o',
+    \ '           /      \     ___/  o',
+    \ '           |      |     \)',
+    \ '           '',   _/    .--''',
+    \ '             `"`;    (',
+    \ '                [[[[]]_..,_',
+    \ '                /  .--""``\\',
+    \ '              .''       .\,,||',
+    \ '        (   .''     -""`| `""`',
+    \ '        |\ /         __|',
+    \ '         \|       .-''  `\',
+    \ '          \  _           |',
+    \ '           (          .-'' )',
+    \ '            `""""""""""""`',
+    \]
+let g:startify_custom_header = startify#fortune#boxed() + g:ascii
