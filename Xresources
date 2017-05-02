@@ -4,7 +4,6 @@
 
 ! XFT - Fonts
 !----------------------------------------------------------------------
-Xft.dpi: 130 
 Xft.antialias: 1
 Xft.rgba: rgb
 Xft.autohint: 0
