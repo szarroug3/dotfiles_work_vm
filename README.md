@@ -9,6 +9,9 @@ General
 * update your PATH to include $HOME/bin
 * compton
 
+Zsh
+* urxvt-perls
+
 Fonts
 * [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/)
 * FiraMono (ttf-fira-mono)
