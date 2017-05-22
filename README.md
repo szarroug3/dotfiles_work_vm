@@ -8,7 +8,7 @@ General
 * zsh (set as your default shell)
 * update your PATH to include $HOME/bin
 * compton
-* [j4-dmenu-desktop] (https://aur.archlinux.org/packages/j4-dmenu-desktop/)
+* [j4-dmenu-desktop](https://aur.archlinux.org/packages/j4-dmenu-desktop/)
 
 Zsh
 * urxvt-perls
