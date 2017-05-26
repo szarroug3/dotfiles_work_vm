@@ -12,14 +12,14 @@ workspace() {
 	currentworkspaceline="$(wmctrl -d | grep '\*')"
 	
 	wslist=$(\
-                wmctrl -d \
-                | awk '/ / {print $2 $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20}' ORS=''\
-                | sed -e 's/\s*  //g' \
-                -e 's/\*[ 0-9A-Za-z]*[^ -~]*/  &  /g' \
+        wmctrl -d \
+        | awk '/ / {print $2 $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20}' ORS=''\
+        | sed -e 's/\s*  //g' \
+        -e 's/\*[ 0-9A-Za-z]*[^ -~]*/  &  /g' \
 		-e 's/\-[ 0-9A-Za-z]*[^ -~]*/%{F#A0A0A0}%{A:i3-msg workspace &:}  &  %{A}%{F#A0A0A0}/g' \
 		-e 's/\*\([ 0-9A-Za-z]*[^ -~]\)/%{F#FFFFFF}\1%{F-}/g' \
-                -e 's/ -/ /g' \
-                )
+        -e 's/ -/ /g' \
+        )
         echo -n "%{$workspacenext}%{$workspaceprevious}$wslist%{A}%{A}"
 }
 windowtitle(){
