@@ -8,7 +8,7 @@ clock() {
 #Copied from /u/Dylan112
 workspace() {
 	workspacenext="A4:i3-msg workspace next_on_output:"
-        workspaceprevious="A5:i3-msg workspace prev_on_output:"
+    workspaceprevious="A5:i3-msg workspace prev_on_output:"
 	currentworkspaceline="$(wmctrl -d | grep '\*')"
 	
 	wslist=$(\
