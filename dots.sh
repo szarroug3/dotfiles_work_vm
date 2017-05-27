@@ -28,8 +28,15 @@ ln -sf ${BASEDIR}/compton.conf $HOME/.config/compton.conf
 #.....................
 
 # zsh
+rm -rf $HOME/.oh-my-zsh
 ln -sf ${BASEDIR}/zsh/zprofile $HOME/.zprofile
 ln -sf ${BASEDIR}/zsh/zshrc $HOME/.zshrc
+
+#.....................
+# Git
+#.....................
+
+ln -sf ${BASEDIR}/gitignore $HOME/.gitignore
 
 #.....................
 # Apps
