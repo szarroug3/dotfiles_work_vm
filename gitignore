@@ -1,5 +1,5 @@
 # vim temporary files
-*~
+*.un~
 *.swp
 *.swo
 
