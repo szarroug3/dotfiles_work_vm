@@ -2,6 +2,7 @@
 *.un~
 *.swp
 *.swo
+.*
 
 # test folders
 /test
@@ -10,4 +11,3 @@
 # python
 __*__
 .*pyc
-.*.*
