@@ -1,0 +1,8 @@
+# vim temporary files
+*.un~
+*.swp
+*.swo
+
+# test folders
+/test
+/do_not_submit
