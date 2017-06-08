@@ -174,16 +174,16 @@ bindsym $mod+9 workspace $WS9
 bindsym $mod+0 workspace $WS10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $WS1 
-bindsym $mod+Shift+2 move container to workspace $WS2 
-bindsym $mod+Shift+3 move container to workspace $WS3 
-bindsym $mod+Shift+4 move container to workspace $WS4 
-bindsym $mod+Shift+5 move container to workspace $WS5 
-bindsym $mod+Shift+6 move container to workspace $WS6 
-bindsym $mod+Shift+7 move container to workspace $WS7 
-bindsym $mod+Shift+8 move container to workspace $WS8 
-bindsym $mod+Shift+9 move container to workspace $WS9 
-bindsym $mod+Shift+0 move container to workspace $WS10 
+bindsym $mod+Shift+1 move container to workspace $WS1; workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2; workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3; workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4; workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5; workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6; workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7; workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8; workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9; workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS10; workspace $WS10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
