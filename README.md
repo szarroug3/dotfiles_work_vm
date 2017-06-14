@@ -20,6 +20,9 @@ Fonts
 * [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/)
 * FiraMono (ttf-fira-mono)
 
+Cursors
+* [Capitaine Cursors](https://aur.archlinux.org/packages/capitaine-cursors/)
+
 Random-color-picker
 * [hsetroot](https://aur.archlinux.org/packages/hsetroot/)
 * update Xresources.d/.colors to use your home directory rather than /home/samreen
