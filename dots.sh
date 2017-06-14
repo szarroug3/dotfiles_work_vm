@@ -23,6 +23,13 @@ ln -sf ${BASEDIR}/i3 $HOME/.config/i3
 # compton
 ln -sf ${BASEDIR}/compton.conf $HOME/.config/compton.conf
 
+# cursor pack
+mkdir -p $HOME/.icons
+mkdir -p $HOME/.icons/default
+rm $HOME/.icons/default/cursors
+ln -sf ${BASEDIR}/icons/index.theme $HOME/.icons/default/index.theme
+ln -sf /usr/share/icons/Capitaine/cursors $HOME/.icons/default/cursors
+
 #.....................
 # Terminal
 #.....................
