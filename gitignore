@@ -2,7 +2,12 @@
 *.un~
 *.swp
 *.swo
+.*
 
 # test folders
 /test
 /do_not_submit
+
+# python
+__*__
+.*pyc
