@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ~/.ghe_token
+export GHE_TOKEN=$GHE_TOKEN

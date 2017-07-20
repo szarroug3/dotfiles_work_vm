@@ -77,6 +77,7 @@ set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
+set wildignorecase
 set visualbell
 set cursorline
 set ttyfast
@@ -86,6 +87,12 @@ set laststatus=2
 set relativenumber
 set number
 set undofile
+
+" Make H and L work as they should
+nnoremap H H5k
+nnoremap L L5j
+vnoremap H H5k
+vnoremap L L5j
 
 " Change leader from \ to ,
 let mapleader = ","

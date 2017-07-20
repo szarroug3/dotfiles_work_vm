@@ -59,9 +59,11 @@ bindsym $mod+Shift+P mode "$mode_system"
 assign [instance="urxvt"] $WS1
 assign [class="Vivaldi-stable"] $WS2
 assign [class= "Eclipse"] $WS3
+assign [class="jetbrains-idea-ce"] $WS3
 for_window [instance="urxvt"] focus
 for_window [class="Vivaldi-stable"] focus
 for_window [class="Eclipse"] focus
+for_window [class="jetbrains-idea-ce"] focus
 
 #..............
 # Applications
