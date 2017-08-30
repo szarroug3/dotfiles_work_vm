@@ -18,7 +18,7 @@ font pango:monospace 8
 # Look
 #..............
 new_window pixel 3
-focus_follows_mouse yes
+focus_follows_mouse no
 
 for_window [class="^.*"] border pixel 0
 
