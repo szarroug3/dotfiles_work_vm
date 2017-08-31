@@ -70,3 +70,7 @@ URxvt.tabbed.title-fg: -2
 URxvt.tabbed.autohide: true
 URxvt.tabbed.new-button: false
 URxvt.tabbed.title: true
+
+! keyboard-select
+URxvt.perl-ext-common: ...,keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
