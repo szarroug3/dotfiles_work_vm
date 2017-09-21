@@ -44,6 +44,8 @@ Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 Plug 'sjl/gundo.vim'
 " Syntax checker
 Plug 'vim-syntastic/syntastic'
+" Python syntax higlighting
+Plug 'kh3phr3n/python-syntax'
 call plug#end()
 
 " Make Nerdtree and Startify both work on startup
@@ -139,7 +141,13 @@ nnoremap ; :
 " Save on unfocus
 au FocusLost * :wa
 
-" Color cheme
+" Color scheme
+let python_highlight_all = 1
+hi link pythonFunctionParameters StorageClass
+hi link pythonClass Title
+hi link pythonClassParameters Title
+hi link pythonBuiltIn Identifier
+hi link pythonDecorator Operator
 colorscheme molokai
 
 " Rainbow parentheses always on
@@ -178,6 +186,10 @@ nmap <CR> i<CR><Esc>
 nmap <tab> i<tab><Esc>
 " press backspace to erase one letter backwards
 nnoremap <backspace> X<Esc>
+" press F10 to see what highlight syntax is used for whatever's under the cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Get django to work with YCM
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
