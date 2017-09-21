@@ -39,7 +39,7 @@ rm -rf $HOME/.oh-my-zsh
 ln -sf ${BASEDIR}/zsh/oh-my-zsh $HOME/.oh-my-zsh
 ln -sf ${BASEDIR}/zsh/zprofile $HOME/.zprofile
 ln -sf ${BASEDIR}/zsh/zshrc $HOME/.zshrc
-ln -sf ${BASEDIR}/zsh/zsh-output-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-output-highlighting
+cp -r ${BASEDIR}/zsh/zsh-output-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-output-highlighting
 
 #.....................
 # Git
