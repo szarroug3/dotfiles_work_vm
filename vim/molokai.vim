@@ -75,7 +75,7 @@ hi FoldColumn ctermfg=240 ctermbg=NONE cterm=NONE
 hi PreProc ctermfg=112 ctermbg=NONE cterm=NONE
 hi Visual ctermfg=NONE ctermbg=238 cterm=NONE
 hi MoreMsg ctermfg=185 ctermbg=NONE cterm=NONE
-hi VertSplit ctermfg=8 ctermbg=232 cterm=bold
+hi VertSplit ctermfg=8 ctermbg=235 cterm=bold
 hi Exception ctermfg=112 ctermbg=NONE cterm=bold
 hi Keyword ctermfg=197 ctermbg=NONE cterm=bold
 hi Type ctermfg=81 ctermbg=NONE cterm=NONE
