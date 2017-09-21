@@ -2,7 +2,7 @@ e -- Title:     dark
 ! -- Author:    szarroug
 ! -- Created:   2017
 
-#define bg     #202020
+#define bg     #121212
 #define fg     #ffffff
 #define blk    #000000
 #define bblk   #000000
