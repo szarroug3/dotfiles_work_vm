@@ -1,3 +1,3 @@
 [[ -f ~/.zshrc ]] && . ~/.zshrc
 
-[[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && export PATH=$PATH:$HOME/bin:$HOME/Work/Scripts && exec startx
+[[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && export PATH=$PATH:$HOME/bin:$HOME/Work/Scripts:$HOME/.Xresources.d && exec startx

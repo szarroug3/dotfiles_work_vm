@@ -52,7 +52,9 @@ git config --global core.excludesfile ~/.gitignore
 #.....................
 
 # vim
+mkdir $HOME/.vim/colors
 ln -sf ${BASEDIR}/vim/vimrc $HOME/.vimrc
+cp ${BASEDIR}/vim/molokai.vim $HOME/.vim/colors/molokai.vim
 
 # bin
 rm -rf $HOME/bin

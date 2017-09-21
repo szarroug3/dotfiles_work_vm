@@ -9,11 +9,11 @@ filename=$HOME/.Xresources.d/.colors
 curcol=$(awk 'NR==5{gsub(/>/," ");print $2}' $filename | cut -d '/' -f6)
 
 pik() {
-	cd $dir
-	ls|sort -R|tail -1|while read file; do
-		sed -i "s/$curcol/$file/g" $filename
-	done
-	cd $HOME
+	#cd $dir
+	#ls|sort -R|tail -1|while read file; do
+		#sed -i "s/$curcol/$file/g" $filename
+	#done
+	#cd $HOME
 	xrdb -merge ~/.Xresources
 }
 setwall() {

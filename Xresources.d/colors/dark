@@ -1,0 +1,22 @@
+! -- Title:     scag
+! -- Author:    szarroug
+! -- Created:   2017
+
+#define bg     #202020
+#define fg     #ffffff
+#define blk    #000000
+#define bblk   #000000
+#define red    #ff1744
+#define ylw    #ffe792
+#define grn    #A6e22e
+#define blu    #03a9f4
+#define mag    #f92672
+#define cyn    #6b6b6b
+#define wht    #f8f8f2
+#define bred   #ff1744
+#define bylw   #ffe792
+#define bgrn   #a6e22e
+#define bblu   #03a9f4
+#define bmag   #f92672
+#define bcyn   #6b6b6b
+#define bwht   #f8f8f2
