@@ -14,7 +14,7 @@ let g:colors_name = "molokai_modified"
 "hi TabLineSel -- no settings --
 "hi CTagsMember -- no settings --
 "hi CTagsGlobalConstant -- no settings --
-hi Normal guifg=#ffffff guibg=#202020 guisp=#202020 gui=NONE ctermfg=15 ctermbg=234 cterm=NONE
+hi Normal guifg=#ffffff guibg=#202020 guisp=#202020 gui=NONE ctermfg=15 ctermbg=233 cterm=NONE
 "hi CTagsImport -- no settings --
 "hi CTagsGlobalVariable -- no settings --
 "hi SpellRare -- no settings --
@@ -30,7 +30,7 @@ hi Normal guifg=#ffffff guibg=#202020 guisp=#202020 gui=NONE ctermfg=15 ctermbg=
 "hi clear -- no settings --
 hi IncSearch ctermfg=186 ctermbg=NONE cterm=NONE
 hi WildMenu ctermfg=81 ctermbg=NONE cterm=NONE
-hi SignColumn ctermfg=112 ctermbg=234 cterm=NONE
+hi SignColumn ctermfg=112 ctermbg=233 cterm=NONE
 hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE
 hi SpecialComment ctermfg=240 ctermbg=NONE cterm=bold
 hi Typedef ctermfg=81 ctermbg=NONE cterm=NONE
@@ -40,7 +40,7 @@ hi PreCondit ctermfg=112 ctermbg=NONE cterm=bold
 hi Include ctermfg=112 ctermbg=NONE cterm=NONE
 hi StatusLine ctermfg=235 ctermbg=235 cterm=NONE
 hi StatusLineNC ctermfg=15 ctermbg=235 cterm=NONE
-hi NonText ctermfg=15 ctermbg=234 cterm=NONE
+hi NonText ctermfg=15 ctermbg=233 cterm=NONE
 hi DiffText ctermfg=NONE ctermbg=239 cterm=bold
 hi Ignore ctermfg=8 ctermbg=235 cterm=NONE
 hi Debug ctermfg=138 ctermbg=NONE cterm=bold
@@ -51,7 +51,7 @@ hi Conditional ctermfg=197 ctermbg=NONE cterm=bold
 hi StorageClass ctermfg=208 ctermbg=NONE cterm=NONE
 hi Todo ctermfg=15 ctermbg=235 cterm=bold
 hi Special ctermfg=81 ctermbg=NONE cterm=NONE
-hi LineNr ctermfg=250 ctermbg=234 cterm=NONE
+hi LineNr ctermfg=250 ctermbg=233 cterm=NONE
 hi Label ctermfg=185 ctermbg=NONE cterm=NONE
 hi PMenuSel ctermfg=NONE ctermbg=8 cterm=NONE
 hi Search ctermfg=15 ctermbg=240 cterm=NONE
@@ -95,9 +95,9 @@ hi Macro ctermfg=186 ctermbg=NONE cterm=NONE
 hi Underlined ctermfg=8 ctermbg=NONE cterm=underline
 hi DiffAdd ctermfg=NONE ctermbg=23 cterm=NONE
 hi cursorim ctermfg=235 ctermbg=60 cterm=NONE
-hi Error ctermfg=197 ctermbg=234 cterm=NONE
-hi ErrorMsg ctermfg=15 ctermbg=234 cterm=NONE
+hi Error ctermfg=197 ctermbg=233 cterm=NONE
+hi ErrorMsg ctermfg=15 ctermbg=233 cterm=NONE
 hi SpellBad ctermfg=NONE ctermbg=197 cterm=NONE
 hi todo ctermfg=185 ctermbg=NONE cterm=NONE
-hi WarningMsg ctermfg=15 ctermbg=234 cterm=NONE
+hi WarningMsg ctermfg=15 ctermbg=233 cterm=NONE
 hi SpellCap ctermfg=NONE ctermbg=185 cterm=NONE
