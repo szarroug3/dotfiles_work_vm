@@ -1,5 +1,5 @@
 # Dotfiles for Arch, i3-gaps, and lemonbar-xft
-A lot of this was taken from [okubax's dotfiles](https://github.com/okubax/dotfiles)
+A lot of this was taken from [okubax's dotfiles](https://github.com/okubax/dotfiles) and [nvnehi's dotfiles](https://github.com/nvnehi/dotfiles)
 
 # Requirements
 General
@@ -9,7 +9,6 @@ General
 * zsh (set as your default shell)
 * update your PATH to include $HOME/bin
 * compton
-* [j4-dmenu-desktop](https://aur.archlinux.org/packages/j4-dmenu-desktop/)
 
 Zsh
 * urxvt-perls
@@ -17,6 +16,10 @@ Zsh
 * fortune-mod
 * highlight
 * [keyboard-select](https://github.com/muennich/urxvt-perls)
+
+Rofi
+* rofi
+* xdg-utils
 
 Fonts
 * [FontAwesome](https://aur.archlinux.org/packages/ttf-font-awesome/)

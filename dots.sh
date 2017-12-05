@@ -20,6 +20,10 @@ ln -sf ${BASEDIR}/Xresources.d $HOME/.Xresources.d
 rm -rf $HOME/.config/i3
 ln -sf ${BASEDIR}/i3 $HOME/.config/i3
 
+# dunst
+mkdir $HOME/.config/dunst
+ln -sf ${BASEDIR}/dunst/dunstrc $HOME/.config/dunst/dunstrc
+
 # compton
 ln -sf ${BASEDIR}/compton.conf $HOME/.config/compton.conf
 

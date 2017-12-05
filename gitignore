@@ -1,7 +1,9 @@
 # vim temporary files
 *.un~
-*.swp
+*.swm
+*.swn
 *.swo
+*.swp
 .*
 
 # test folders
