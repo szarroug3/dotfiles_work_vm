@@ -95,7 +95,7 @@ bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show run -fake-transparency
+bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi -modi combi -fake-transparency"
 bindsym $mod+u exec --no-startup-id ~/.config/i3/rofi_search.sh
 
 # change focus
