@@ -77,11 +77,11 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 ! rofi
 ! State:           'bg',        'fg',       'bgalt',        'hlbg',   'hlfg'
-rofi.color-normal:  #00121212,   #686868,    #00121212,      mag,      fg
-rofi.color-urgent:  #00121212,   #686868,    #00121212,      mag,      fg
-rofi.color-active:  #00121212,   #686868,    #00121212,      mag,      fg
+rofi.color-normal:  #00121212,   #686868,    #00121212,      bred,     fg
+rofi.color-urgent:  #00121212,   #686868,    #00121212,      bred,     fg
+rofi.color-active:  #00121212,   #686868,    #00121212,      bred,     fg
 
 !                  'background', 'border', 'separator'
-rofi.color-window:  #ee121212,    blu,      #ee121212
+rofi.color-window:  #ee121212,    bred,     #ee121212
 
 rofi.modi:          run,window
