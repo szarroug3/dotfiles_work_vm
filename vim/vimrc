@@ -168,12 +168,31 @@ hi link NERDTreeFile NONE
 hi link NERDTreeDirSlash StartifySlash
 hi link NERDTreeCWD Identifier
 hi link NERDTreeDir Comment
+hi link NERDTreeLinkDir Comment
+hi link NERDTreeLinkTarget Comment
 hi link NERDTreeOpenable Comment
 hi link NERDTreeExecFile NONE
 colorscheme cake
 
+" RainbowTree colors
+hi link level1c Identifier
+hi link level2c Statement
+hi link level3c Comment
+hi link level4c Operator
+hi link level5c Constant
+hi link level6c String
+hi link level7c NONE
+hi link level8c Statement
+hi link level9c Comment
+hi link level10c NONE
+hi link level11c String
+hi link level12c Constant
+hi link level13c Operator
+hi link level14c Comment
+hi link level15c Statement
+hi link level16c Identifier
+
 " Rainbow parentheses always on
-au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
