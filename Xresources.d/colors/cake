@@ -2,21 +2,21 @@ e -- Title:     cake
 ! -- Author:    szarroug [ copied from nvnehi ]
 ! -- Created:   2017
 
-#define bg     #1e1e1e
-#define fg     #f7f6ec
-#define blk    #343935
-#define bblk   #595b59
-#define red    #cf3f61
-#define ylw    #e9b32a
-#define grn    #7bb75b
-#define blu    #4c9ad4
-#define mag    #a57fc4
-#define cyn    #389aad
-#define wht    #fafaf6
-#define bred   #d18fa6
-#define bylw   #78592f
-#define bgrn   #767f2c
-#define bblu   #135979
-#define bmag   #604291
-#define bcyn   #76bbca
-#define bwht   #b2b5ae
+#define bg     #1E1E1E
+#define fg     #EFEEF1
+#define blk    #595B59
+#define bblk   #CFCFC6
+#define red    #CF3F61
+#define ylw    #E0A348
+#define grn    #177F5F
+#define blu    #233F80
+#define mag    #7D3E91
+#define cyn    #176D75
+#define bwht   #FAFAF6
+#define bred   #BC5A74
+#define bylw   #FFC672
+#define bgrn   #309475
+#define bblu   #5670AB
+#define bmag   #BF92CE
+#define bcyn   #46949B
+#define wht    #EFEEF1
