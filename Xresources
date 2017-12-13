@@ -10,7 +10,6 @@ Xft.rgba: rgb
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hinting: 1
-Xft.hintstyle: hintfull
 Xft.hintstyle:  hintslight
 
 ! Colors
@@ -52,7 +51,7 @@ URxvt.font: xft:Fira Mono:pixelsize=12:antialias=true
 URxvt.boldFont: xft:Fira Mono:pixelsize=12:antialias=true
 
 ! clickable urls
-URxvt.perl-ext-common: default,matcher,selection-to-clipboard,clipboard
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,clipboard,keyboard-select
 URxvt.url-launcher: /usr/bin/vivaldi-stable
 URxvt.matcher.button: 1
 
@@ -72,7 +71,6 @@ URxvt.tabbed.new-button: false
 URxvt.tabbed.title: true
 
 ! keyboard-select
-URxvt.perl-ext-common: ...,keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 ! rofi
