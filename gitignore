@@ -1,11 +1,12 @@
 # vim temporary files
 *.un~
-*.swp
+*.swm
+*.swn
 *.swo
+*.swp
 .*
 
 # test folders
-test/
 do_not_submit/
 
 # python
