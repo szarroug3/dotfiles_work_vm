@@ -57,7 +57,7 @@ mkdir $HOME/.vim/colors
 mkdir $HOME/.vim/after
 mkdir $HOME/.vim/after/syntax
 ln -sf ${BASEDIR}/vim/vimrc $HOME/.vimrc
-cp ${BASEDIR}/vim/molokai.vim $HOME/.vim/colors/molokai.vim
+cp ${BASEDIR}/vim/cake.vim $HOME/.vim/colors/cake.vim
 cp ${BASEDIR}/vim/python.vim $HOME/.vim/after/syntax/python.vim
 
 # bin

@@ -148,7 +148,29 @@ hi link pythonClass Title
 hi link pythonClassParameters Title
 hi link pythonBuiltIn Identifier
 hi link pythonDecorator Operator
-colorscheme molokai
+hi link ColorColumn CursorLine
+hi link shCommandSub NONE
+hi link vimHiGroup Identifier
+
+" Startify Colors
+hi link StartifyPath Comment
+hi link StartifyFile Identifier
+hi link StartifySlash None
+hi link StartifyBracket Comment
+hi link StartifyNumber StartifyFile
+hi link StartifyHeader NONE
+hi link StartifySection Statement
+
+" NERDTree Colors
+hi link NERDTreeHelp Statement
+hi link NERDTreeUp Comment
+hi link NERDTreeFile NONE
+hi link NERDTreeDirSlash StartifySlash
+hi link NERDTreeCWD Identifier
+hi link NERDTreeDir Comment
+hi link NERDTreeOpenable Comment
+hi link NERDTreeExecFile NONE
+colorscheme cake
 
 " Rainbow parentheses always on
 au VimEnter * RainbowParenthesesToggle
