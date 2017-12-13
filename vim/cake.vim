@@ -51,7 +51,7 @@ hi LineNr guifg=#efeef1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE 
 hi CursorLineNr guifg=#efeef1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
 hi ColorColumn guifg=NONE guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=236 cterm=NONE
 hi StatusLine guifg=#efeef1 guibg=#1e1e1e guisp=#1e1e1e gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
-hi Label guifg=#BD9800 guibg=NONE guisp=NONE gui=NONE ctermfg=1 ctermbg=NONE cterm=NONE
+hi Label guifg=#BD9800 guibg=NONE guisp=NONE gui=NONE ctermfg=168 ctermbg=NONE cterm=NONE
 hi PMenuSel guifg=#efeef1 guibg=#a56e5f guisp=#a56e5f gui=NONE ctermfg=255 ctermbg=131 cterm=NONE
 hi Search guifg=#1e1e1e guibg=#695454 guisp=#695454 gui=NONE ctermfg=255 ctermbg=236 cterm=NONE
 hi Delimiter guifg=#BD9800 guibg=NONE guisp=NONE gui=NONE ctermfg=243 ctermbg=NONE cterm=NONE
