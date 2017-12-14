@@ -44,7 +44,7 @@ hi PMenuSbar guifg=NONE guibg=#848688 guisp=#848688 gui=NONE ctermfg=NONE ctermb
 hi Identifier guifg=#d787af guibg=NONE guisp=NONE gui=NONE ctermfg=168 ctermbg=NONE cterm=NONE
 hi SpecialChar guifg=#BD9800 guibg=NONE guisp=NONE gui=NONE ctermfg=1 ctermbg=NONE cterm=NONE
 hi Conditional guifg=#ea88b9 guibg=NONE guisp=NONE gui=NONE ctermfg=168 ctermbg=NONE cterm=NONE
-hi StorageClass guifg=#536991 guibg=NONE guisp=NONE gui=NONE ctermfg=60 ctermbg=NONE cterm=NONE
+hi StorageClass guifg=#536991 guibg=NONE guisp=NONE gui=NONE ctermfg=168 ctermbg=NONE cterm=NONE
 hi Todo guifg=#fe728b guibg=#1e1e1e guisp=#1e1e1e gui=NONE ctermfg=204 ctermbg=NONE cterm=NONE
 hi Special guifg=#c092ce guibg=NONE guisp=NONE gui=NONE ctermfg=183 ctermbg=NONE cterm=NONE
 hi LineNr guifg=#efeef1 guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
