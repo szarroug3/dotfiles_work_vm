@@ -4,4 +4,5 @@
 export PATH=$PATH:$HOME/bin:$HOME/Work/Scripts:$HOME/.Xresources.d &&
 export EDITOR=vim &&
 export VISUAL=vim &&
+export bti=~/Work/Git/bti-nextgen
 exec startx
