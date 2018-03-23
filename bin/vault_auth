@@ -1,0 +1,2 @@
+export VAULT_ADDR=`cat ~/.vault_addr`
+vault auth -method=github token=`cat ~/.vault_token`
