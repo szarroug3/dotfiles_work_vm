@@ -42,10 +42,12 @@ Plug 'vim-scripts/yankring.vim'
 Plug 'valloric/youcompleteme', { 'do': function('BuildYCM') }
 " Graphical undo list
 Plug 'sjl/gundo.vim'
-" Syntax checker
-Plug 'vim-syntastic/syntastic'
 " Python syntax higlighting
 Plug 'kh3phr3n/python-syntax'
+" Go plugin
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Asynchronous Syntax checker
+Plug 'w0rp/ale'
 call plug#end()
 
 " Make Nerdtree and Startify both work on startup
@@ -239,16 +241,14 @@ let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
 
-" Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" vim-go settings
+let g:go_fmt_autosave = 0
 
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_python_pylint_args='--rcfile=~/.config/.pylintrc'
+" ALE settings
+let g:ale_linters = {'python': ['pylint']}
+let g:ale_python_pylint_use_global = 1
+let g:ale_python_pylint_executable = 'pylint'
+let g:ale_python_pylint_options = '--rcfile /home/samreen/Work/Git/bti-nextgen/pylint.gate.rc'
 
 " Startify settings
 let g:ascii = [

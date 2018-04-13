@@ -21,7 +21,7 @@ wifi() {
 }
 mail() {
 	# grabs new email # from offlineimap
-		echo -e "%{F$HIGHLIGHT}\uf0e0 %{F-}$(ls /home/ajibola/mail/Gmail/INBOX/new | wc -l)"
+		echo -e "%{F$HIGHLIGHT}\uf0e0 %{F-}$(ls /home/samreen/Mail/new | wc -l)"
 }
 music() {
 	if [ -f ~/.thunner.info ]; then
@@ -83,7 +83,7 @@ bat() {
     fi
 }
 while true; do
-    echo "%{U#BC5A74}$(workspace)$(windowtitle)%{r}$(bat)  $(clock)"
+    echo "%{U#BC5A74}$(workspace)$(windowtitle)%{r}$(mail)  $(clock)  $(bat)"
     sleep .1;
 done |
 
