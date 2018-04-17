@@ -21,7 +21,7 @@ wifi() {
 }
 mail() {
 	# grabs new email # from offlineimap
-		echo -e "%{F$HIGHLIGHT}\uf0e0 %{F-}$(ls /home/samreen/Mail/new | wc -l)"
+		echo -e "%{F$HIGHLIGHT}\uf0e0 %{F-}$(cat /home/samreen/.mailcountdirs | xargs -I f ls f | wc -l)"
 }
 music() {
 	if [ -f ~/.thunner.info ]; then
