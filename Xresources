@@ -83,3 +83,4 @@ rofi.color-active:  #00121212,   #686868,    #00121212,      bred,     fg
 rofi.color-window:  #ee121212,    bred,     #ee121212
 
 rofi.modi:          run,window
+rofi.font:          Fira Mono 12
