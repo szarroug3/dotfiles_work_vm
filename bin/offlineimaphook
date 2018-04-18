@@ -1,14 +1,9 @@
-#!/bin/bash
-new_dir="$HOME/Mail/*/new"
-num_mail=$(ls $new_dir|wc -l)
-message=""
-
-if [[ $num_mail -gt 0 ]];then
-    for i in $new_dir/*;do
-        folder=$(basename $(dirname $(dirname $i)))
-        message="$message\n($folder) $(grep -m1 '^From: ' $i|sed 's/From: //'|sed 's/ <[^>]*>//')\n$(grep -m1 '^Subject: ' $i|sed 's/Subject: //')\n"
-    done
-    notify-send "New Mail" "$message" -t 5000 &
+notmuch new
+if [[ $(notmuch search tag:notify) ]]; then
+    notmuch search --format=json 'tag:notify' | jq -r '.[] | "\nFrom: \(.authors)\n\(.subject)"' | xargs -0 -I message notify-send "New mail" "message"
 fi
 
-notmuch new &
+# Tag email etc. here
+notmuch tag --batch <<EOF
+    -notify tag:notify
+EOF
