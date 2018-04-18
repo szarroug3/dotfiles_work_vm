@@ -20,8 +20,8 @@ wifi() {
     echo -e "%{F$HIGHLIGHT}\uf1eb %{F-}$(iw wlp2s0 link | grep 'SSID' | cut -c 8-)"
 }
 mail() {
-	# grabs new email # from offlineimap
-		echo -e "%{F$HIGHLIGHT}\uf0e0 %{F-}$(find /home/samreen/Mail/*/new -type f | wc -l)"
+	# counts number of unread emails
+		echo -e "%{F$HIGHLIGHT}\uf0e0 %{F-}$(notmuch search tag:unread | wc -l)"
 }
 music() {
 	if [ -f ~/.thunner.info ]; then
