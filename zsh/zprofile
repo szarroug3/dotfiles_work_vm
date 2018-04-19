@@ -4,6 +4,7 @@
 export PATH=$PATH:$HOME/bin:$HOME/Work/Scripts:$HOME/.Xresources.d:$HOME/go/bin &&
 export EDITOR=vim &&
 export VISUAL=vim &&
-export bti=~/Work/Git/bti-nextgen
-export bti2=~/Work/Git/bti/bti-nextgen
+export bti=~/Work/Git/bti-nextgen &&
+export bti2=~/Work/Git/bti/bti-nextgen &&
+source ~/bin/set_tokens &&
 exec startx
