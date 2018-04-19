@@ -4,6 +4,6 @@ if [[ $(notmuch search tag:notify) ]]; then
     
     # Untag email etc. here
     notmuch tag --batch <<EOF
-        -notify tag:notify
-    EOF
+    -notify tag:notify
+EOF
 fi
