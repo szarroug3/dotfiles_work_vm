@@ -21,7 +21,10 @@ wifi() {
 }
 mail() {
 	# counts number of unread emails
-		echo -e "%{F$HIGHLIGHT}\uf0e0 %{F-}$(notmuch search tag:unread | wc -l)"
+    NUM_NEW_MAIL=$(notmuch search --format:json tag:unread | jq ".[] | .matched" | awk '{n += $1}; END{print n}')
+    if [[ $NUM_NEW_MAIL ]]; then
+		echo -e "%{F$HIGHLIGHT}\uf0e0 %{F-}$NUM_NEW_MAIL"
+    fi
 }
 music() {
 	if [ -f ~/.thunner.info ]; then
