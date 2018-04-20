@@ -20,6 +20,7 @@ wifi() {
     echo -e "%{F$HIGHLIGHT}\uf1eb %{F-}$(iw wlp2s0 link | grep 'SSID' | cut -c 8-)"
 }
 mail() {
+    notmuch new > /dev/null
 	# counts number of unread emails
     NUM_NEW_MAIL=$(notmuch search --format:json tag:unread | jq ".[] | .matched" | awk '{n += $1}; END{print n}')
     if [[ $NUM_NEW_MAIL ]]; then

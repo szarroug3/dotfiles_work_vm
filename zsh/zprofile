@@ -6,5 +6,6 @@ export EDITOR=vim &&
 export VISUAL=vim &&
 export bti=~/Work/Git/bti-nextgen &&
 export bti2=~/Work/Git/bti/bti-nextgen &&
+export fusion=~/Work/Git/fusion &&
 source ~/bin/set_tokens &&
 exec startx
