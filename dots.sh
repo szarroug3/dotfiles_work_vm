@@ -64,6 +64,15 @@ ln -sf ${BASEDIR}/vim/vimrc $HOME/.vimrc
 cp ${BASEDIR}/vim/cake.vim $HOME/.vim/colors/cake.vim
 cp ${BASEDIR}/vim/python.vim $HOME/.vim/after/syntax/python.vim
 
+#.....................
+# emacs
+# ...................
+rm -rf $HOME/.emacs.d
+mkdir $HOME/.emacs.d
+ln -sf ${BASEDIR}/emacs/emacs $HOME/.emacs
+ln -sf ${BASEDIR}/emacs/themes/molokai. $HOME/.emacs.d/themes
+ln -sf ${BASEDIR}/emacs/emacs.service $HOME/.config/systemd/user/emacs.service
+
 # bin
 rm -rf $HOME/bin
 ln -sf ${BASEDIR}/bin $HOME/bin

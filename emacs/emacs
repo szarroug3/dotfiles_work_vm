@@ -1,0 +1,162 @@
+; -*-Lisp-*-
+
+(require 'package)
+
+;; add some package repos
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+;; install use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
+;; install and use evil-mode and evil-leader-mode
+(use-package evil
+  :ensure t
+  :init
+  (evil-mode t)
+  (setq evil-overriding-maps nil)
+  (setq evil-intercept-maps nil)
+  (use-package evil-leader
+    :ensure t)
+  (global-evil-leader-mode)
+  (evil-leader/set-leader ",")
+  (evil-leader/set-key
+    "cc" 'comment-line
+    "cu" 'comment-line
+    "ev" '(lambda () (interactive)(split-window-horizontally) (other-window 1) (find-file "~/.emacs"))
+    "g" 'magit-status
+    "h" '(lambda () (interactive)(split-window-vertically) (other-window 1))
+    "v" '(lambda () (interactive)(split-window-horizontally) (other-window 1))
+    "w" 'whitespace-cleanup))
+
+;; install and use helm
+(use-package helm
+  :ensure t
+  :init
+  (helm-mode 1))
+
+;; install and use KeyChord
+(use-package use-package-chords
+  :ensure t
+  :init
+  ;; Exit insert mode by pressing jj
+  (setq key-chord-two-keys-delay 0.1)
+  (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+  (key-chord-mode 1))
+
+;; install and use hightlight-parentheses
+(use-package highlight-parentheses
+  :ensure t
+  :init
+  (global-highlight-parentheses-mode t))
+
+;; install and use line-relative
+(use-package linum-relative
+  :ensure t
+  :init
+  (linum-relative-global-mode)
+  (helm-linum-relative-mode 1)
+  (setq linum-relative-current-symbol ""))
+;; (setq linum-relative-backend 'display-line-numbers-mode)
+
+;; install magit and evil-magit
+(use-package magit
+  :ensure t
+  :init
+  ;; install and use evil-magit
+  (use-package evil-magit
+    :ensure t))
+
+;; install and use flycheck
+(use-package flycheck
+  :ensure t
+  :init
+  (setq-default flycheck-disabled-checkers '(python-flake8))
+  (setq flycheck-pylintrc "~/.pylintrc")
+  (setq flycheck-python-pylint-executable "/usr/bin/python2")
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
+(use-package jedi
+  :ensure t
+  :init
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (setq jedi:complete-on-dot t))
+
+;; save undo and command history between sessions
+(global-undo-tree-mode)
+(setq undo-tree-auto-save-history t)
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+(setq backup-by-copying t)
+(savehist-mode 1)
+
+;; don't follow symlinks
+(setq vc-follow-symlinks nil)
+
+;; use 4 spaces for tab
+(setq-default indent-tabs-mode nil)
+(setq tab-stop-list (number-sequence 4 200 4))
+
+;; movement keys
+(global-set-key (kbd "C-j") 'windmove-down)
+(global-set-key (kbd "C-k") 'windmove-up)
+(global-set-key (kbd "C-h") 'windmove-left)
+(global-set-key (kbd "C-l") 'windmove-right)
+(define-key evil-motion-state-map ";" 'evil-ex)
+(define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
+(global-set-key "\C-ch" help-map)
+
+;; disable menu, scroll, and tool bars
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+;; make tab completion case insensitive
+(setq completion-ignore-case t)
+
+;; custom functions
+;; highlight TODO
+(defun font-lock-comment-annotations ()
+  "Highlight a bunch of well known comment annotations.
+
+This functions should be added to the hooks of major modes for programming."
+  (font-lock-add-keywords
+   nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|HACK\\|REFACTOR\\):"
+          1 font-lock-warning-face t))))
+
+(add-hook 'prog-mode-hook 'font-lock-comment-annotations)
+
+
+;; STUFF BELOW THIS HAVE BEEN ADDED BY EMACS -- DO NOT  TOUCH
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8000c9a88af3ccf764f48298ebe1fbe21b5b8f9e8145fe2d54ce0bf7432d7156" "54cec2f091bd93068a31a655bb0a5e92e27936ea74f91a6c533b0165c48b42ac" "8b8807f6e466daa85aba588145eed801adb76e42598b4ac1ee9670de5823c0ae" "0fa58795c8758f5947a392e60f4753aa981dfcb99445ec686aa9feee7fcc60d1" "2e92f90b826767202f9cc692ad0416d30312d7e7edd25fdb312bc1cb3c364a9b" "0c09ed1221b9eb700b25edcf4dea2d52e231916d04f18dcf54fc854ffd92970d" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" default)))
+ '(package-selected-packages
+   (quote
+    (flycheck evil-magit magit git highlight-parentheses spacemacs use-package-chords buffer-move evil-leader linum-relative KeyChord helm Helm use-package evil-visual-mark-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+;; END OF STUFF EMACS ADDED
+
+;; molokai theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(setq molokai-theme-kit t)
+(load-theme 'molokai)

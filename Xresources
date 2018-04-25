@@ -73,6 +73,13 @@ URxvt.tabbed.title: true
 ! keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
+! emacs
+Emacs.font: FiraMono-8.5
+<<<<<<< HEAD
+=======
+Emacs.verticalScrollBars: false
+>>>>>>> ca43d70... change how emacs is being used
+
 ! rofi
 ! State:           'bg',        'fg',       'bgalt',        'hlbg',   'hlfg'
 rofi.color-normal:  #00121212,   #686868,    #00121212,      red,     fg

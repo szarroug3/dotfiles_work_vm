@@ -91,7 +91,7 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id urxvt
 
 # start emacs
-bindsym $mod+e exec --no-startup-id emacs
+bindsym $mod+e exec --no-startup-id emacsclient -nc
 
 # kill focused window
 bindsym $mod+Shift+q kill
