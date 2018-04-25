@@ -9,6 +9,8 @@ General
 * zsh (set as your default shell)
 * update your PATH to include $HOME/bin
 * compton
+* emacs
+* unclutter
 
 Zsh
 * urxvt-perls
@@ -37,3 +39,6 @@ Vim
 * run vim after getting vim-plug and run :PlugInstall
 * (Optional) pylint (python2-pylint for python2 or python-pylint for python3)
 * (Optional) flake8
+
+Emacs
+* Run emacs as a daemon using "systemctl --user enable --now emacs" after running dots.sh
