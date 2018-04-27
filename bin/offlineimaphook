@@ -1,13 +1,21 @@
 notmuch new
 
-# untag notify from emails in  Conversation History and Sent Items
+# tag emails with foldername
+for mid in $(notmuch search --output=messages tag:notify); do
+    notmuch tag +$(notmuch search --output=files $mid | cut -d "/" -f5 | sed 's/ //g') $mid 
+done
+
+# tag anything in the sent folder as SentItem if it's not already tagged
+
+# untag notify from emails in Conversation History and Sent Items
 notmuch tag --batch <<EOF
--notify folder:"Sent Items"
--notify folder:"Conversation History"
+-notify tag:SentItems
+-notify tag:ConversationHistory
++SentItems 'folder:"Sent Items"' and not tag:SentItems
 EOF
 
 if [[ $(notmuch search tag:notify) ]]; then
-    notmuch search --format=json 'tag:notify' | jq -r '.[] | "\nFrom: \(.authors)\n\(.subject)"' | xargs -0 -I message notify-send "New mail" "message"
+    notmuch search --format=json tag:notify | jq -r '.[] | "\nFrom: \(.authors)\n\(.subject)\nTags: \(.tags)"' | xargs -0 -I message notify-send "New mail" "message"
 
     # Untag email etc. here
     notmuch tag --batch <<EOF
