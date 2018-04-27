@@ -8,7 +8,7 @@ EOF
 
 if [[ $(notmuch search tag:notify) ]]; then
     notmuch search --format=json 'tag:notify' | jq -r '.[] | "\nFrom: \(.authors)\n\(.subject)"' | xargs -0 -I message notify-send "New mail" "message"
-    
+
     # Untag email etc. here
     notmuch tag --batch <<EOF
     -notify tag:notify
