@@ -75,10 +75,7 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 ! emacs
 Emacs.font: FiraMono-8.5
-<<<<<<< HEAD
-=======
 Emacs.verticalScrollBars: false
->>>>>>> ca43d70... change how emacs is being used
 
 ! rofi
 ! State:           'bg',        'fg',       'bgalt',        'hlbg',   'hlfg'
