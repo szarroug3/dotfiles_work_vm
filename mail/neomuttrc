@@ -1,0 +1,36 @@
+#------------------------------------------------------------
+# General Settings
+#------------------------------------------------------------
+
+source $HOME/.muttrc
+
+# cache folders to speed up opening
+set header_cache=$HOME/.neomutt_cache
+
+# calculate the number of new email
+set mail_check_stats
+
+# what to do on each timeout
+#timeout-hook 'exec sync-mailbox'
+
+#------------------------------------------------------------
+# Sidebar Settings
+#------------------------------------------------------------
+
+# show sidebar
+set sidebar_visible
+
+# set the sidebar format to show the number of new emails
+set sidebar_format="%B %> %?N?%N?"
+
+# sidebar colors
+color sidebar_new   red     default
+
+#------------------------------------------------------------
+# Key Bindings
+#------------------------------------------------------------
+
+# moving around in sidebar
+bind index,pager    \Cj        sidebar-next    # highlight next folder
+bind index,pager    \Ck        sidebar-prev    # highlight previous folder
+bind index,pager    \Co        sidebar-open    # open highlighted folder

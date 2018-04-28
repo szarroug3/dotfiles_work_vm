@@ -84,3 +84,9 @@ ln -sf ${BASEDIR}/bin $HOME/bin
 # python
 ln -sf ${BASEDIR}/linters/python/flake8 $HOME/.config/flake8
 ln -sf ${BASEDIR}/linters/python/pylintrc $HOME/.config/.pylintrc
+
+#.....................
+# Mail
+# ...................
+ ln -sf ${BASEDIR}/mail/muttrc $HOME/.muttrc
+ ln -sf ${BASEDIR}/mail/neomuttrc $HOME/.neomuttrc

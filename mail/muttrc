@@ -1,0 +1,143 @@
+#------------------------------------------------------------
+# Mail Settings
+#------------------------------------------------------------
+
+# Notmuch
+set virtual_spoolfile=yes
+set folder=$HOME/Mail
+source  ~/.mailboxes
+
+# set mail directory
+# set spoolfile=$HOME/Mail/BTI
+# set folder=$HOME/Mail
+
+# setup mailboxes
+# mailboxes =BTI =INBOX =To\ Me\ Only =To\ Me =Things\ I\ Need =Personal =Missed\ Calls =Sent\ Items =Conversation\ History
+
+# copy sent mail to Sent Items mailbox
+set record="Sent Items"
+
+# setup aliases
+source $HOME/.aliases
+
+# get user settings
+source $HOME/.mutt_user_settings
+
+#------------------------------------------------------------
+# UI Settings
+#------------------------------------------------------------
+
+# how often to update ui
+set timeout=1
+
+# use threads
+set sort=threads
+set strict_threads=yes
+
+# don't distinguish between O and N
+set mark_old=no
+
+# how to sort
+set sort_aux=reverse-last-date-received
+set sort_browser=reverse-date
+
+# use w3m to read html emails automatically
+auto_view text/html
+auto_view image/*
+
+# don't collapse threads with unread messages
+unset collapse_unread
+
+# don't pause
+set sleep_time=0
+
+# wrap long lines
+set smart_wrap
+
+# what to use for editor
+set editor="emacsclient"
+
+# Turn Outlook-style replies on (,O) and off (,o).
+macro index,pager ,O	':set sig_on_top;set indent_string="";set header;set attribution="-----Original Message-----"<Return>' "set Outlook-style replies"
+macro index,pager ,o	':unset sig_on_top;set indent_string="> ";unset header;set attribution="On %{%Y-%m-%d}, %f wrote:"<Return>' "set Internet-style replies"
+
+#------------------------------------------------------------
+# Key Bindings
+#------------------------------------------------------------
+
+# use vim-keys
+source $HOME/vim-keys.rc
+
+# rebinding overridden keys
+bind index          \en        toggle-new       # toggle a message's 'new' flag
+
+# change things i don't like
+bind index          <return>   display-message  # select the current entry
+bind index,pager    \Cr        group-reply      # reply all
+
+
+# change thread bindings
+bind index          -          collapse-thread  # collapse/uncollapse thread
+bind index          _          collapse-all     # collapse/uncollapse all threads
+
+#------------------------------------------------------------
+# Color Settings
+#------------------------------------------------------------
+
+# base colors
+color hdrdefault black        default
+color quoted     red          default
+color signature  brightblack  default
+color indicator  brightwhite  red
+color attachment black        default
+color error      red          default
+color message    white        default
+color search     green        default
+color status     brightcyan   default
+color tree       red          default
+color normal     white        default
+color tilde      green        default 
+color bold       brightcyan   default 
+color markers    red          default 
+
+# Colour definitions when on a mono screen
+mono bold      bold
+mono underline underline
+mono indicator reverse
+
+# Colours for items in the reader
+color header brightwhite default "^(From|Subject):"
+color header red         default "^X-Junked-Because: "
+color header red         default "^X-Virus-hagbard: .* FOUND"
+mono  header bold             "^(From|Subject|X-Junked-Because|X-Virus-hagbard):"
+
+# Colours for items in the index
+color index red  default ~N
+color index brightgreen default "~N (~x hagbard\.davep\.org | ~h \"^In-[Rr]eply-[Tt]o: .*hagbard\.davep\.org\")"
+color index red         default ~F
+color index black       default ~T
+color index brightwhite default ~D
+mono  index bold              ~N
+mono  index bold              ~F
+mono  index bold              ~T
+mono  index bold              ~D
+
+# URLs
+color body red  default "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+color body red  default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body red  default "news:[^ \">\t\r\n]*"
+mono  body bold              "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
+mono  body bold              "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono  body bold              "news:[^ \">\t\r\n]*"
+
+# email addresses
+color body red  default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+mono  body bold              "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Various smilies and the like
+color body brightgreen default "<[Gg]>"                                            # <g>
+color body brightgreen default "<[Bb][Gg]>"                                        # <bg>
+color body brightgreen default " [;:]-*[)>(<|]"                                    # :-) etc...
+color body red  default "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)" # *Bold* text.
+color body red  default "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)"     # _Underlined_ text.
+color body red  default "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"     # /Italic/ text.

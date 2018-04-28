@@ -42,3 +42,8 @@ Vim
 
 Emacs
 * Run emacs as a daemon using "systemctl --user enable --now emacs" after running dots.sh
+
+Mail
+* neomutt
+* offlineimap [need to setup]
+* notmuch [need to setup]
