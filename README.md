@@ -3,6 +3,7 @@ A lot of this was taken from [okubax's dotfiles](https://github.com/okubax/dotfi
 
 # Requirements
 General
+* X11 (xorg-server, xorg-xinit, xorg-xrandr, xorg-xbacklight)
 * urxvt (rxvt-unicode)
 * [i3-gaps](https://github.com/Airblader/i3)
 * [lemonbar-xft](https://aur.archlinux.org/packages/lemonbar-xft-git/)
@@ -29,6 +30,11 @@ Fonts
 
 Cursors
 * [Capitaine Cursors](https://aur.archlinux.org/packages/capitaine-cursors/)
+
+Bar.sh
+* alsa (alsa-utils)
+* wmctrl
+* [optional] iw (fix wifi function in bar.sh and add $(wifi) at the bottom where you want it in the bar)
 
 Random-color-picker
 * [hsetroot](https://aur.archlinux.org/packages/hsetroot/)
