@@ -27,6 +27,8 @@ source $HOME/.mutt_user_settings
 # UI Settings
 #------------------------------------------------------------
 
+# how to read special files
+set mailcap_path=~/.config/mailcap
 # how often to update ui
 set timeout=1
 
@@ -66,7 +68,7 @@ macro index,pager ,o	':unset sig_on_top;set indent_string="> ";unset header;set 
 #------------------------------------------------------------
 
 # use vim-keys
-source $HOME/vim-keys.rc
+source $HOME/.config/vim-keys.rc
 
 # rebinding overridden keys
 bind index          \en        toggle-new       # toggle a message's 'new' flag

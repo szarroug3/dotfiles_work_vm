@@ -12,6 +12,7 @@ General
 * compton
 * emacs
 * unclutter
+* [srandrd](https://aur.archlinux.org/packages/srandrd/)https://aur.archlinux.org/packages/srandrd/
 
 Zsh
 * urxvt-perls
@@ -53,3 +54,4 @@ Mail
 * neomutt
 * offlineimap [need to setup]
 * notmuch [need to setup]
+* [docx2txt](http://docx2txt.sourceforge.net)

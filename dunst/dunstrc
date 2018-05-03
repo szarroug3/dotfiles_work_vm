@@ -243,3 +243,7 @@
 #    urgency = normal
 #
 # vim: ft=cfg
+
+[play_sound]
+    summary = "*"
+    script = ~/bin/play_notification.sh

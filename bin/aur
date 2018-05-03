@@ -1,8 +1,0 @@
-AUR="https://aur.archlinux.org/"
-PACKAGE=$1
-CWD=$PWD
-git clone "${AUR}""${PACKAGE}".git /tmp/"$PACKAGE"
-cd /tmp/"${PACKAGE}"
-makepkg -si
-cd "${CWD}"
-rm -rf /tmp/"${PACKAGE}"

@@ -6,7 +6,7 @@ export EDITOR='emacsclient -nc' &&
 export VISUAL='emacsclient -nc' &&
 export VISUAL=emacsclient &&
 export bti=~/Work/Git/bti-nextgen &&
-export bti2=~/Work/Git/bti/bti-nextgen &&
+export bti2=~/Work/Git/cdi-bti-nextgen &&
 export fusion=~/Work/Git/fusion &&
 source ~/bin/set_tokens &&
 exec startx

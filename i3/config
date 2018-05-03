@@ -31,9 +31,9 @@ gaps outer 20
 # .............
 
 # multimedia keys
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute #increase sound volume
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute #decrease sound volume
-bindsym XF86AudioMute exec amixer -q set Master toggle #toggle mute
+bindsym XF86AudioRaiseVolume exec amixer -q set Speaker 2dB+ unmute #increase sound volume
+bindsym XF86AudioLowerVolume exec amixer -q set Speaker 2dB- unmute #decrease sound volume
+bindsym XF86AudioMute exec amixer -q set Speaker toggle #toggle mute
 
 # brightness
 bindsym XF86MonBrightnessUp exec "xbacklight +10"
@@ -67,7 +67,7 @@ for_window [class="jetbrains-idea-ce"] focus
 #..............
 # Applications
 # .............
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

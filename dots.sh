@@ -17,8 +17,12 @@ rm -rf $HOME/.Xresources.d
 ln -sf ${BASEDIR}/Xresources.d $HOME/.Xresources.d
 
 # i3
+mkdir $HOME/.config
 rm -rf $HOME/.config/i3
 ln -sf ${BASEDIR}/i3 $HOME/.config/i3
+
+# monitors
+ln -sf ${BASEDIR}/xrandr/monitors $HOME/.config/monitors
 
 # dunst
 mkdir $HOME/.config/dunst
@@ -32,7 +36,7 @@ mkdir -p $HOME/.icons
 mkdir -p $HOME/.icons/default
 rm $HOME/.icons/default/cursors
 ln -sf ${BASEDIR}/icons/index.theme $HOME/.icons/default/index.theme
-ln -sf /usr/share/icons/Capitaine/cursors $HOME/.icons/default/cursors
+ln -sf /usr/share/icons/capitaine-cursors/cursors $HOME/.icons/default/cursors
 
 #.....................
 # Terminal
@@ -57,6 +61,7 @@ git config --global core.excludesfile ~/.gitignore
 #.....................
 
 # vim
+mkdir $HOME/.vim
 mkdir $HOME/.vim/colors
 mkdir $HOME/.vim/after
 mkdir $HOME/.vim/after/syntax
@@ -69,8 +74,10 @@ cp ${BASEDIR}/vim/python.vim $HOME/.vim/after/syntax/python.vim
 # ...................
 rm -rf $HOME/.emacs.d
 mkdir $HOME/.emacs.d
+mkdir $HOME/.config/systemd
+mkdir $HOME/.config/systemd/user
 ln -sf ${BASEDIR}/emacs/emacs $HOME/.emacs
-ln -sf ${BASEDIR}/emacs/themes/molokai. $HOME/.emacs.d/themes
+ln -sf ${BASEDIR}/emacs/themes $HOME/.emacs.d/themes
 ln -sf ${BASEDIR}/emacs/emacs.service $HOME/.config/systemd/user/emacs.service
 
 # bin
@@ -90,3 +97,5 @@ ln -sf ${BASEDIR}/linters/python/pylintrc $HOME/.config/.pylintrc
 # ...................
  ln -sf ${BASEDIR}/mail/muttrc $HOME/.muttrc
  ln -sf ${BASEDIR}/mail/neomuttrc $HOME/.neomuttrc
+ ln -sf ${BASEDIR}/mail/mailcap $HOME/.config/mailcap
+ ln -sf ${BASEDIR}/mail/vim-keys.rc $HOME/.config/vim-keys.rc

@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast git-extras python pip sublime tmux web-search chucknorris history lol zsh-output-highlighting django docker)
+plugins=(git gitfast git-extras python pip sublime web-search chucknorris history lol zsh-output-highlighting django docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,7 +84,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias svim="sudo -E vim"
-alias python="python2"
-alias pip="pip2"
-alias virtualenv="virtualenv2"
 alias emacs="emacsclient -nc"

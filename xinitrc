@@ -8,13 +8,16 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 xrdb -merge ~/.Xresources &
-xrandr --output VGA-1 --auto &
+python ~/bin/auto_xrandr.py ~/.config/monitors --force &
+srandrd python ~/bin/auto_xrandr.py ~/.config/monitors &
 compton --config ~/.config/compton.conf -b &
 /home/samreen/.Xresources.d/random-color-picker &
-VBoxClient --clipboard &
-VBoxClient --display &
-/home/samreen/bin/mount_shared &
 unclutter &
+udiskie -F &
+dropbox &
 
-#exec i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1
+# if [[ ! -d "~/i3logs" ]]; then
+# 	mkdir ~/i3logs
+# fi
+# exec i3 -V >> ~/i3logs/$(date +'%F-%k-%M-%S') 2>&1
 exec i3

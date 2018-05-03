@@ -1,0 +1,7 @@
+[home]
+primary=DP-1
+on=DP-5.1.8,DP-1,DP-5.1.1.8
+
+[laptop]
+primary=eDP-1-1
+on=
