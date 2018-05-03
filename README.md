@@ -14,6 +14,11 @@ General
 * unclutter
 * [srandrd](https://aur.archlinux.org/packages/srandrd/)https://aur.archlinux.org/packages/srandrd/
 
+Lock
+* imagemagic or scrot
+* xautolock
+* [i3lock-color-git](https://aur.archlinux.org/packages/i3lock-color-git/)
+
 Zsh
 * urxvt-perls
 * tmux

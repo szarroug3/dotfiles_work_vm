@@ -42,7 +42,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -10"
 # power options
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (p) shutdown
 mode "$mode_system" {
-	bindsym l exec --no-startup-id lock, mode "default"
+	# bindsym l exec --no-startup-id lock, mode "default"
 	bindsym e exec --no-startup-id i3-msg exit, mode "default"
 	bindsym s exec --no-startup-id systemctl suspend, mode "default"
 	bindsym h exec --no-startup-id systemctl hibernate, mode "default"
@@ -53,16 +53,12 @@ mode "$mode_system" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym $mod+Shift+P mode "$mode_system"
+bindsym $mod+XF86PowerOff mode "$mode_system"; exec "notify-send 'Power' '\n(l) lock\n(e) logout\n(s) suspend\n(h) hibernate\n(r) reboot\n(p) shutdown'"
+bindsym $mod+Shift+p mode "$mode_system"; exec "notify-send 'Power' '\n(l) lock\n(e) logout\n(s) suspend\n(h) hibernate\n(r) reboot\n(p) shutdown'"
+bindsym XF86PowerOff exec --no-startup-id systemctl suspend
 
-# move to workspace
-assign [class="Vivaldi-stable"] $WS2
-assign [class= "Eclipse"] $WS3
-assign [class="jetbrains-idea-ce"] $WS3
-for_window [instance="urxvt"] focus
-for_window [class="Vivaldi-stable"] focus
-for_window [class="Eclipse"] focus
-for_window [class="jetbrains-idea-ce"] focus
+# autolock after 5 minutes idle then suspend 10 minutes after that
+# exec --no-startup-id xautolock -detectsleep -time 3 -locker lock -killtime 10 -killer "systemctl suspend"
 
 #..............
 # Applications
