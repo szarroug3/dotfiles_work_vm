@@ -57,7 +57,7 @@ workspace() {
     workspacenext="A4:i3-msg workspace next_on_output:"
     workspaceprevious="A5:i3-msg workspace prev_on_output:"
     currentworkspaceline="$(wmctrl -d | grep '\*')"
-    
+
     wslist=$(\
              wmctrl -d \
              | awk '/ / {print $2 $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20}' ORS=''\
@@ -67,7 +67,9 @@ workspace() {
              -e 's/\*\([0-9A-Za-z]*[^ -~]*\)/%{F#FFFFFF}%{+u} \1%{-u}%{F-}/g' \
              -e 's/ -/ /g' \
           )
-        echo -e "%{F$HIGHLIGHT} \uf24d %{F-}%{$workspacenext}%{$workspaceprevious}$wslist%{A}%{A}%{F$HIGHLIGHT} \uf120 %{F-}"
+    #TODO: Fix this -- want to show workspaces on the monitors they're on
+    echo -e "%{F$HIGHLIGHT} \uf24d %{F-}$wslist%{F$HIGHLIGHT} \uf120 %{F-}"
+    # echo -e "%{F$HIGHLIGHT} \uf24d %{F-}%{$workspacenext}%{$workspaceprevious}$wslist%{A}%{A}%{F$HIGHLIGHT} \uf120 %{F-}"
 }
 windowtitle(){
     # Grabs focused window's title
@@ -99,15 +101,22 @@ bat() {
         echo -e "%{F$HIGHLIGHT}\uf244 %{F-}$capacity%"
     fi
 }
+
+# List of all the monitors/screens you have in your setup
+MONITORS=$(xrandr | grep -o "^.* connected [^(]"  | sed "s/ connected .*//")
 while true; do
-    echo "%{U#BC5A74}$(workspace)$(windowtitle)%{c}$(music)%{r}$(mail)  $(wifi)  $(volume)  $(clock)  $(bat)"
-    sleep .1;
+    TMP=0
+    BAROUT=""
+    for m in $(echo "$MONITORS"); do
+        BAROUT+="%{S${TMP}}%{U#BC5A74}%{l}$(workspace)$(windowtitle)%{c}$(music)%{r}$(mail)  $(wifi)  $(volume)  $(clock)  $(bat)"
+        let TMP=$TMP+1
+    done
+    echo $BAROUT
 done |
 
 lemonbar -p -d -B#C0000000 -F#FFFFFF\
-    -g x23++\
-    -f "FiraMono:bold:size=8"\
-    -f "FontAwesome:bold:size=9"\
-    -u 3\
-    eDP-1\
-    | zsh
+                        -g x23++\
+                        -f "FiraMono:bold:size=8"\
+                        -f "FontAwesome:bold:size=9"\
+                        -u 3\
+                        | zsh
