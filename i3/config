@@ -31,9 +31,9 @@ gaps outer 20
 # .............
 
 # multimedia keys
-bindsym XF86AudioRaiseVolume exec amixer -q set Speaker 2dB+ unmute #increase sound volume
-bindsym XF86AudioLowerVolume exec amixer -q set Speaker 2dB- unmute #decrease sound volume
-bindsym XF86AudioMute exec amixer -q set Speaker toggle #toggle mute
+bindsym XF86AudioRaiseVolume exec pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +2% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -2% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle #toggle mute
 
 # brightness
 bindsym XF86MonBrightnessUp exec "xbacklight +10"

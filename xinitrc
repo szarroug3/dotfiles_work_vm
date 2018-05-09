@@ -15,6 +15,8 @@ compton --config ~/.config/compton.conf -b &
 unclutter &
 udiskie -F &
 dropbox &
+davmail -notray > /dev/null 2>&1 &
+khalnotifier &
 
 # if [[ ! -d "~/i3logs" ]]; then
 # 	mkdir ~/i3logs

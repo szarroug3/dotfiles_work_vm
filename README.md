@@ -60,3 +60,8 @@ Mail
 * offlineimap [need to setup]
 * notmuch [need to setup]
 * [docx2txt](http://docx2txt.sourceforge.net)
+
+Calendar
+* [davmail](https://aur.archlinux.org/packages/davmail/) [need to setup]
+* vdirsyncer [need to setup]
+* khal [need to setup]

@@ -3,12 +3,17 @@ HIGHLIGHT="#595b59"
 clock() {
     TIME=$(date "+%I.%M")
     DATE=$(date "+%a %m.%d.%y")
-    echo -n "%{F$HIGHLIGHT}$(printf '%b' "\uf073")%{F-} $DATE  %{F$HIGHLIGHT}$(printf '%b' "\uf017")%{F-} $TIME"
+    CAL=$(khal list now --format "{start-style} {title}" -a "Calendar" | grep Today -A 1 | sed -n 2p)
+    if [[ ! -z $CAL ]]; then
+        echo -n "%{F$HIGHLIGHT}$(printf '%b' "\uf073")%{F-} $DATE  %{F$HIGHLIGHT}$(printf '%b' "\uf017")%{F-} $TIME  %{F$HIGHLIGHT}$(printf '%b' "\uf274")%{F-} $CAL"
+    else
+        echo -n "%{F$HIGHLIGHT}$(printf '%b' "\uf073")%{F-} $DATE  %{F$HIGHLIGHT}$(printf '%b' "\uf017")%{F-} $TIME"
+    fi
 }
 volume() {
-    MUTE=$(amixer get Speaker | grep % | sed -n 1p | awk -F '[' '{print $3}' | awk -F ']' '{print $1}')
-    VOL=$(amixer get Speaker | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F '%]' '{print $1}')
-    if [ "$MUTE" == 'off' ] || [ "$VOL" == 0 ]; then
+    MUTE=$(pactl list sinks | grep 'Mute:' | head -n 2 | tail -n 1 | awk -F ': ' '{print $2}')
+    VOL=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n 2 | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+    if [ "$MUTE" == 'yes' ] || [ "$VOL" == 0 ]; then
         echo -n "%{F$HIGHLIGHT}$(printf '%-b' "\uf026")%{F-}%{O14}Mute"
     elif (($VOL > 49)); then
         echo -n "%{F$HIGHLIGHT}$(printf '%-b' "\uf028")%{F-}$(printf ' %03.2d%s' "$VOL" "%")"
