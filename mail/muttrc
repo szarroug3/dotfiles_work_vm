@@ -15,13 +15,14 @@ source  ~/.mailboxes
 # mailboxes =BTI =INBOX =To\ Me\ Only =To\ Me =Things\ I\ Need =Personal =Missed\ Calls =Sent\ Items =Conversation\ History
 
 # copy sent mail to Sent Items mailbox
-set record="Sent Items"
+set record="+Sent Items"
 
 # setup aliases
 source $HOME/.aliases
 
 # get user settings
 source $HOME/.mutt_user_settings
+
 
 #------------------------------------------------------------
 # UI Settings
@@ -59,9 +60,12 @@ set smart_wrap
 # what to use for editor
 set editor="emacsclient"
 
-# Turn Outlook-style replies on (,O) and off (,o).
-macro index,pager ,O	':set sig_on_top;set indent_string="";set header;set attribution="-----Original Message-----"<Return>' "set Outlook-style replies"
-macro index,pager ,o	':unset sig_on_top;set indent_string="> ";unset header;set attribution="On %{%Y-%m-%d}, %f wrote:"<Return>' "set Internet-style replies"
+# outlook style replies
+set sig_on_top
+set indent_string=""
+set header
+set attribution="-----Original Message-----"<Return>'
+
 
 #------------------------------------------------------------
 # Key Bindings
@@ -76,11 +80,21 @@ bind index          \en        toggle-new       # toggle a message's 'new' flag
 # change things i don't like
 bind index          <return>   display-message  # select the current entry
 bind index,pager    \Cr        group-reply      # reply all
+bind index,pager    '#'        sync-mailbox     # sync mailbox instead of break-thread
 
 
 # change thread bindings
 bind index          -          collapse-thread  # collapse/uncollapse thread
 bind index          _          collapse-all     # collapse/uncollapse all threads
+
+
+#------------------------------------------------------------
+# Macros
+#------------------------------------------------------------
+
+# notmuch macros
+macro index \\\\ "<vfolder-from-query>" "Search mailbox"
+
 
 #------------------------------------------------------------
 # Color Settings

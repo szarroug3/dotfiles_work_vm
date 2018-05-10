@@ -22,8 +22,7 @@ volume() {
     fi
 }
 wifi() {
-    vpn=false
-    if ping -c 1 home.hpe.com &> /dev/null; then
+    if ip link show | grep -q tun0; then
         VPN='\uf084'
     else
         VPN='\uf1eb'
@@ -57,24 +56,19 @@ music() {
         echo -n ""
     fi
 }
-#Copied from /u/Dylan112
 workspace() {
-    workspacenext="A4:i3-msg workspace next_on_output:"
-    workspaceprevious="A5:i3-msg workspace prev_on_output:"
-    currentworkspaceline="$(wmctrl -d | grep '\*')"
-
-    wslist=$(\
-             wmctrl -d \
-             | awk '/ / {print $2 $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20}' ORS=''\
-             | sed -e 's/\s*//g' \
-             -e 's/\*[0-9A-Za-z]*[^ -~]*/& /g' \
-             -e 's/\-[0-9A-Za-z]*[^ -~]*/%{A:i3-msg workspace &:} & %{A}/g' \
-             -e 's/\*\([0-9A-Za-z]*[^ -~]*\)/%{F#FFFFFF}%{+u} \1%{-u}%{F-}/g' \
-             -e 's/ -/ /g' \
-          )
-    #TODO: Fix this -- want to show workspaces on the monitors they're on
-    echo -e "%{F$HIGHLIGHT} \uf24d %{F-}$wslist%{F$HIGHLIGHT} \uf120 %{F-}"
-    # echo -e "%{F$HIGHLIGHT} \uf24d %{F-}%{$workspacenext}%{$workspaceprevious}$wslist%{A}%{A}%{F$HIGHLIGHT} \uf120 %{F-}"
+    WORKSPACE="%{F$HIGHLIGHT} \uf24d %{F-}"
+    for ROW in $(i3-msg -t get_workspaces | jq '. |=sort_by(.num)' | jq -c --arg M "$1" '.[] | select(.output==$M)'); do
+        NUM="$(echo $ROW | jq .num)"
+        FOCUSED="$(echo $ROW | jq .focused)"
+        if [[ $FOCUSED = true ]]; then
+            WORKSPACE+="%{+u} $NUM %{-u}"
+        else
+            WORKSPACE+="%{A:i3-msg workspace $NUM:} $NUM %{A}"
+        fi
+    done
+    WORKSPACE+="%{F$HIGHLIGHT} \uf120 %{F-}"
+    echo -e "$WORKSPACE"
 }
 windowtitle(){
     # Grabs focused window's title
@@ -108,12 +102,13 @@ bat() {
 }
 
 # List of all the monitors/screens you have in your setup
-MONITORS=$(xrandr | grep -o "^.* connected [^(]"  | sed "s/ connected .*//")
 while true; do
     TMP=0
     BAROUT=""
-    for m in $(echo "$MONITORS"); do
-        BAROUT+="%{S${TMP}}%{U#BC5A74}%{l}$(workspace)$(windowtitle)%{c}$(music)%{r}$(mail)  $(wifi)  $(volume)  $(clock)  $(bat)"
+    # BAR="$(windowtitle)%{c}$(music)%{r}$(mail)  $(wifi)  $(volume)  $(clock)  $(bat)"
+    BAR="$(windowtitle)%{c}$(music)%{r}$(mail)  $(wifi)  $(volume)  $(clock)  $(bat)"
+    for MONITOR in $(i3-msg -t get_outputs | jq -r '. |=sort_by(.rect.x)' | jq -r '.[] | select(.name!="xroot-0") | .name'); do
+        BAROUT+="%{S${TMP}}%{U#BC5A74}%{l}$(workspace $MONITOR)$BAR"
         let TMP=$TMP+1
     done
     echo $BAROUT

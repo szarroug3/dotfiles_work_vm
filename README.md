@@ -38,8 +38,9 @@ Cursors
 * [Capitaine Cursors](https://aur.archlinux.org/packages/capitaine-cursors/)
 
 Bar.sh
-* alsa (alsa-utils)
+* pulseaudio
 * wmctrl
+* jq
 * [optional] iw (fix wifi function in bar.sh and add $(wifi) at the bottom where you want it in the bar)
 
 Random-color-picker
