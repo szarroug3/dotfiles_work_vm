@@ -102,6 +102,9 @@
 ;; don't follow symlinks
 (setq vc-follow-symlinks nil)
 
+;; always have a newline at the end of file
+(setq require-final-newline t)
+
 ;; use 4 spaces for tab
 (setq-default indent-tabs-mode nil)
 (setq tab-stop-list (number-sequence 4 200 4))

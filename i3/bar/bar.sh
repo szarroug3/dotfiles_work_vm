@@ -3,7 +3,7 @@ HIGHLIGHT="#595b59"
 clock() {
     TIME=$(date "+%I.%M")
     DATE=$(date "+%a %m.%d.%y")
-    CAL=$(khal list now --format "{start-style} {title}" -a "Calendar" | grep Today -A 1 | sed -n 2p)
+    CAL=$(khal list --notstarted now --format "{start-style} {title}" -a "Calendar" | grep Today -A 1 | sed -n 2p)
     if [[ ! -z $CAL ]]; then
         echo -n "%{F$HIGHLIGHT}$(printf '%b' "\uf073")%{F-} $DATE  %{F$HIGHLIGHT}$(printf '%b' "\uf017")%{F-} $TIME  %{F$HIGHLIGHT}$(printf '%b' "\uf274")%{F-} $CAL"
     else
