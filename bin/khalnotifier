@@ -1,0 +1,5 @@
+while true; do
+    vdirsyncer sync > /dev/null 2>&1
+    python ~/bin/khalnotifier.py
+    sleep 60
+done
