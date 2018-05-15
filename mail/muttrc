@@ -95,6 +95,10 @@ bind index          _          collapse-all     # collapse/uncollapse all thread
 # notmuch macros
 macro index \\\\ "<vfolder-from-query>" "Search mailbox"
 
+# urlscan
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
 
 #------------------------------------------------------------
 # Color Settings
