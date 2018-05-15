@@ -30,7 +30,11 @@ def find_events(khal):
     """
     events = []
     for m in re.finditer(r'STARTDELIM([\s\S]*?) ;;; ([\s\S]*?) ;;; ([\s\S]*?)ENDDELIM', khal):
-        events.append({'time': datetime.strptime(m.group(1), '%m/%d/%Y %I:%M %p'),
+        try:
+            start_time = datetime.strptime(m.group(1), '%m/%d/%Y %I:%M %p')
+        except:
+            continue
+        events.append({'time': start_time,
                        'title': m.group(2), 'description': m.group(3)})
 
     return events
