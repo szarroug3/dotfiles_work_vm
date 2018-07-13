@@ -64,8 +64,15 @@ set editor="emacsclient"
 set sig_on_top
 set indent_string=""
 set header
-set attribution="-----Original Message-----"<Return>'
+set attribution=""
+ignore *                                # ignore all headers
+unhdr_order *                           # ignore currenct header order
+unignore from: date: to: cc: subject:   # show only these
+hdr_order from: date: to: cc: subject:  # and in this order
 
+# send html email
+macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
+set wait_key=no
 
 #------------------------------------------------------------
 # Key Bindings
@@ -129,18 +136,18 @@ mono indicator reverse
 color header brightwhite default "^(From|Subject):"
 color header red         default "^X-Junked-Because: "
 color header red         default "^X-Virus-hagbard: .* FOUND"
-mono  header bold             "^(From|Subject|X-Junked-Because|X-Virus-hagbard):"
+mono  header bold                "^(From|Subject|X-Junked-Because|X-Virus-hagbard):"
 
 # Colours for items in the index
-color index red  default ~N
+color index red         default ~N
 color index brightgreen default "~N (~x hagbard\.davep\.org | ~h \"^In-[Rr]eply-[Tt]o: .*hagbard\.davep\.org\")"
-color index red         default ~F
+color index yellow      default ~F
 color index black       default ~T
 color index brightwhite default ~D
-mono  index bold              ~N
-mono  index bold              ~F
-mono  index bold              ~T
-mono  index bold              ~D
+mono  index bold                ~N
+mono  index bold                ~F
+mono  index bold                ~T
+mono  index bold                ~D
 
 # URLs
 color body red  default "(http|https|ftp|news|telnet|finger)://[^ \">\t\r\n]*"
@@ -152,12 +159,12 @@ mono  body bold              "news:[^ \">\t\r\n]*"
 
 # email addresses
 color body red  default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-mono  body bold              "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+mono  body bold         "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
 
 # Various smilies and the like
 color body brightgreen default "<[Gg]>"                                            # <g>
 color body brightgreen default "<[Bb][Gg]>"                                        # <bg>
 color body brightgreen default " [;:]-*[)>(<|]"                                    # :-) etc...
-color body red  default "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)" # *Bold* text.
-color body red  default "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)"     # _Underlined_ text.
-color body red  default "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"     # /Italic/ text.
+color body red         default "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)" # *Bold* text.
+color body red         default "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)"     # _Underlined_ text.
+color body red         default "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"     # /Italic/ text.
