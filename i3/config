@@ -31,9 +31,9 @@ gaps outer 20
 # .............
 
 # multimedia keys
-bindsym XF86AudioRaiseVolume exec pactl set-sink-mute 1 0 && pactl set-sink-volume 1 +2% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-mute 1 0 && pactl set-sink-volume 1 -2% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle #toggle mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id increase_volume
+bindsym XF86AudioLowerVolume exec --no-startup-id decrease_volume
+bindsym XF86AudioMute exec pacmd list-sinks | grep -e 'index:' -e device.string -e 'name:' | grep -B 1 "C-Media" | grep index | cut -d " " -f 5 | xargs -I sink_name pactl set-sink-mute sink_name toggle #toggle mute
 
 # brightness
 bindsym XF86MonBrightnessUp exec "xbacklight +10"
@@ -101,12 +101,6 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left

@@ -1,0 +1,1 @@
+pacmd list-sinks | grep -e 'index:' -e device.string -e 'name:' | grep -B 1 "C-Media" | grep index | cut -d " " -f 5 | xargs -I sink_name sh -c 'pactl set-sink-mute sink_name 0; pactl set-sink-volume sink_name -2%;'

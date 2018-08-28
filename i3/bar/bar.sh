@@ -11,8 +11,8 @@ clock() {
     fi
 }
 volume() {
-    MUTE=$(pactl list sinks | grep 'Mute:' | head -n 2 | tail -n 1 | awk -F ': ' '{print $2}')
-    VOL=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n 2 | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+    MUTE=$(pacmd list-sinks | grep -e 'index:' -e device.string -e 'name:' -e 'muted:' | grep "C-Media" -A 1 | grep muted | awk -F ': ' '{print $2}')
+    VOL=$(pacmd list-sinks | grep -e 'index:' -e device.string -e 'name:' -e 'volume:' | grep "C-Media" -A 1 | grep volume | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
     if [ "$MUTE" == 'yes' ] || [ "$VOL" == 0 ]; then
         echo -n "%{F$HIGHLIGHT}$(printf '%-b' "\uf026")%{F-}%{O14}Mute"
     elif (($VOL > 49)); then
