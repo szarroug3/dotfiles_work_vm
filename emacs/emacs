@@ -85,11 +85,21 @@
   (setq flycheck-python-pylint-executable "/usr/bin/python2")
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
+;; install and use jedi
 (use-package jedi
   :ensure t
   :init
   (add-hook 'python-mode-hook 'jedi:setup)
   (setq jedi:complete-on-dot t))
+
+;; install and use yasnippet
+(use-package yasnippet
+  :ensure t
+  :diminish yas-minor-mode
+  :config
+  (setq yas-snippet-dirs
+        '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
 
 ;; save undo and command history between sessions
 (global-undo-tree-mode)
@@ -114,9 +124,15 @@
 (global-set-key (kbd "C-k") 'windmove-up)
 (global-set-key (kbd "C-h") 'windmove-left)
 (global-set-key (kbd "C-l") 'windmove-right)
+(global-set-key (kbd "C-u") 'evil-scroll-up)
 (define-key evil-motion-state-map ";" 'evil-ex)
 (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
 (global-set-key "\C-ch" help-map)
+
+;; create kill map keybindings
+;; (define-key evil-normal-state-map "ff" '(lambda(&optional arg) (interactive)(append-next-kill)(smart-kill-whole-line arg)))
+;; (define-key evil-normal-state-map "P" '(lambda() (interactive)(yank)(newline)))
+;; (define-key evil-normal-state-map "p" '(lambda() (interactive)(end-of-line)(newline)(yank)))
 
 ;; disable menu, scroll, and tool bars
 (menu-bar-mode -1)
@@ -125,6 +141,10 @@
 
 ;; make tab completion case insensitive
 (setq completion-ignore-case t)
+
+
+;; load lisp files
+(load "~/.emacs.d/cheat-sh.el")
 
 ;; custom functions
 ;; highlight TODO
@@ -137,6 +157,14 @@ This functions should be added to the hooks of major modes for programming."
           1 font-lock-warning-face t))))
 
 (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
+
+
+;; delete line include indentation
+;; (defun smart-kill-whole-line (&optional arg)
+;;   "A simple wrapper around `kill-whole-line' that respects indentation."
+;;   (interactive "P")
+;;   (kill-whole-line arg)
+;;   (back-to-indentation))
 
 
 ;; STUFF BELOW THIS HAVE BEEN ADDED BY EMACS -- DO NOT  TOUCH

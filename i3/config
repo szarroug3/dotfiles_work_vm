@@ -33,7 +33,7 @@ gaps outer 20
 # multimedia keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id increase_volume
 bindsym XF86AudioLowerVolume exec --no-startup-id decrease_volume
-bindsym XF86AudioMute exec pacmd list-sinks | grep -e 'index:' -e device.string -e 'name:' | grep -B 1 "C-Media" | grep index | cut -d " " -f 5 | xargs -I sink_name pactl set-sink-mute sink_name toggle #toggle mute
+bindsym XF86AudioMute exec --no-startup-id mute_toggle
 
 # brightness
 bindsym XF86MonBrightnessUp exec "xbacklight +10"

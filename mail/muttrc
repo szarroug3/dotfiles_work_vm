@@ -7,13 +7,6 @@ set virtual_spoolfile=yes
 set folder=$HOME/Mail
 source  ~/.mailboxes
 
-# set mail directory
-# set spoolfile=$HOME/Mail/BTI
-# set folder=$HOME/Mail
-
-# setup mailboxes
-# mailboxes =BTI =INBOX =To\ Me\ Only =To\ Me =Things\ I\ Need =Personal =Missed\ Calls =Sent\ Items =Conversation\ History
-
 # copy sent mail to Sent Items mailbox
 set record="+Sent Items"
 

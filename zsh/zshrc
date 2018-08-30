@@ -85,3 +85,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias svim="sudo -E vim"
 alias emacs="emacsclient -nc"
+alias grep='grep --color=yes --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias ag='ag --color'
