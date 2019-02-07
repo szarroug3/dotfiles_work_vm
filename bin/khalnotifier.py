@@ -53,6 +53,8 @@ def filter_events(events, minutes=[0, 5]):
     filtered_events = []
     now = datetime.now()
     for event in events:
+        if event['title'].startswith('Canceled:'):
+            continue
         if int((event['time'] - now).total_seconds() / 60) in minutes:
             filtered_events.append(event)
     return filtered_events
