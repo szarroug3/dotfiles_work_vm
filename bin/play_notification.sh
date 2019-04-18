@@ -1,2 +1,2 @@
 #!/bin/sh
-mpg123 ~/.Xresources.d/sounds/notification.mp3
+mpg123 -o pulse ~/.Xresources.d/sounds/notification.mp3
