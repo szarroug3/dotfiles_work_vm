@@ -83,7 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias svim="sudo -E vim"
+alias ag='ag --color --color-line-number=95 --color-path=94 --color-match=31'
+alias agi='ag -i --color --color-line-number=95 --color-path=94 --color-match=31'
+alias ccat='pygmentize -O style=monokai,linenos=1'
 alias emacs="emacsclient -nc"
 alias grep='grep --color=yes --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
-alias ag='ag --color'
+alias svim="sudo -E vim"
