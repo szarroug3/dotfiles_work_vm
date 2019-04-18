@@ -59,9 +59,10 @@ set indent_string=""
 set header
 set attribution=""
 ignore *                                # ignore all headers
-unhdr_order *                           # ignore currenct header order
+unhdr_order *                           # ignore current header order
 unignore from: date: to: cc: subject:   # show only these
 hdr_order from: date: to: cc: subject:  # and in this order
+set date_format="%y-%m-%d %T"
 
 # send html email
 macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
