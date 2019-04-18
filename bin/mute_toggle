@@ -1,0 +1,1 @@
+pactl set-sink-mute alsa_output.usb-0d8c_C-Media_USB_Audio_Device-00.analog-stereo toggle
