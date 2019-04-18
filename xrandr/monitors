@@ -2,6 +2,14 @@
 primary=DP-1
 on=DP-5.1.8,DP-1,DP-5.1.1.8
 
+[DPOnly]
+primary=DP-5.1.8
+on=DP-5.1.8,DP-5.1.1.8
+
+[HDMIOnly]
+primary=DP-1
+on=
+
 [laptop]
-primary=eDP-1-1
+primary=eDP1
 on=
