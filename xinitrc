@@ -9,7 +9,7 @@ fi
 
 xrdb -merge ~/.Xresources &
 python ~/bin/auto_xrandr.py ~/.config/monitors --force &
-srandrd python ~/bin/auto_xrandr.py ~/.config/monitors &
+srandrd python ~/bin/auto_xrandr.py ~/.config/monitors --force && random-color-picker && killall lemonbar && ~/.config/i3/bar/bar.sh &
 compton --config ~/.config/compton.conf -b &
 /home/samreen/.Xresources.d/random-color-picker &
 unclutter &
