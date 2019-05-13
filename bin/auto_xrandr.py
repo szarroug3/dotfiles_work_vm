@@ -57,7 +57,15 @@ def read_config(filename, offset, xrandr, debug):
         # check that primary is in on if on is set
         primary = config.get(section, 'primary')
         on = [x.strip() for x in config.get(section, 'on').split(',') if x.strip()]
-        if on and primary not in on:
+
+        if not on:
+            fail = True
+            if debug:
+                logging.debug('on cannot be empty in {}'.format(section))
+            continue
+
+        if primary not in on:
+            print('here')
             fail = True
             if debug:
                 logging.debug('{} must be in on if on is set in {}'.format(primary, section))
