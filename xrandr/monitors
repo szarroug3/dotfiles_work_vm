@@ -8,8 +8,8 @@ on=DP-5.1.1.8,DP-5.1.8
 
 [HDMIOnly]
 primary=DP-1
-on=
+on=DP-1
 
 [laptop]
 primary=eDP1
-on=
+on=eDP1
