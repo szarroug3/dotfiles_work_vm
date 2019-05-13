@@ -7,11 +7,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xrdb -merge ~/.Xresources &
 python ~/bin/auto_xrandr.py ~/.config/monitors --force &
-srandrd python ~/bin/auto_xrandr.py ~/.config/monitors --force && random-color-picker && killall lemonbar && ~/.config/i3/bar/bar.sh &
+srandrd python ~/bin/auto_xrandr.py ~/.config/monitors --force &
+sleep .1
+
+random-color-picker /home/samreen/.Xresources.d/walls/water_boat.jpg &
 compton --config ~/.config/compton.conf -b &
-/home/samreen/.Xresources.d/random-color-picker &
 unclutter &
 udiskie -F &
 dropbox &

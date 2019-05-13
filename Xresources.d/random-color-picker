@@ -17,21 +17,25 @@ pik() {
 	xrdb -merge ~/.Xresources
 }
 setwall() {
-	wallpaper=$(awk 'NR==5{gsub(/</," ");print $2}' $HOME/.Xresources.d/.colors | cut -d '/' -f6 | rev | cut -c 2- | rev)
-	match="hsetroot -fill $walls/$wallpaper.jpg -blur 5"
-	default="hsetroot -fill $walls/default.jpg"
+    if [[ -z $wallpaper ]]; then
+	filename=$(awk 'NR==5{gsub(/</," ");print $2}' $HOME/.Xresources.d/.colors | cut -d '/' -f6 | rev | cut -c 2- | rev)
+        wallpaper=$walls/$wallpaper.jpg
+    fi
 
-	if [ -f "$walls/$wallpaper.jpg" ]; then
-		$match
-	else
-		$default
-	fi
+    if [ -f "$wallpaper" ]; then
+        cmd="hsetroot -fill $wallpaper"
+    else
+        cmd="hsetroot -fill $walls/default.jpg"
+    fi
+
+    $cmd
 }
 showme() {
 	printcol=$(awk 'NR==5{gsub(/</," ");print $2}' $HOME/.Xresources.d/.colors | cut -d '/' -f6 | rev | cut -c 2- | rev)
 	notify-send "palette in use - $printcol"
 }
 
+wallpaper=$1
 pik
 setwall
 # showme
