@@ -4,3 +4,4 @@ source ~/.ghe_token
 export GHE_TOKEN=$GHE_TOKEN
 export DEVSTACK=samreen-docker1.vse.rdlabs.hpecorp.net
 export VAULT_ADDR=http://$DEVSTACK:8200
+export VAULT_SKIP_VERIFY="true"
