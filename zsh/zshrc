@@ -51,9 +51,15 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast git-extras python pip sublime web-search chucknorris history lol zsh-output-highlighting django docker)
+plugins=(git gitfast git-extras python pip sublime web-search chucknorris history lol zsh-output-highlighting django docker zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+# Use zsh-autosuggestions ctrl+space
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=50
+bindkey '^ ' autosuggest-accept
 
 # User configuration
 
@@ -85,6 +91,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ag='ag --color --color-line-number=95 --color-path=94 --color-match=31'
 alias agi='ag -i --color --color-line-number=95 --color-path=94 --color-match=31'
+alias agip='ag -i --color --color-line-number=95 --color-path=94 --color-match=31 -G ".py"'
 alias ccat='pygmentize -O style=monokai,linenos=1'
 alias emacs="emacsclient -nc"
 alias grep='grep --color=yes --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
