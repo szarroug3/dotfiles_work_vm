@@ -23,7 +23,7 @@ setwall() {
     fi
 
     if [ -f "$wallpaper" ]; then
-        cmd="hsetroot -fill $wallpaper"
+        cmd="hsetroot -tile $wallpaper"
     else
         cmd="hsetroot -fill $walls/default.jpg"
     fi
