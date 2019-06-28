@@ -19,3 +19,7 @@ datastore/local_settings.py
 scripts/utils/bti-nextgen
 target
 utils/bti-nextgen
+
+# specific files
+cscope.files
+cscope.out
