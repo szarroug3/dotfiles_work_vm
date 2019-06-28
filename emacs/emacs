@@ -18,6 +18,11 @@
 (eval-when-compile
   (require 'use-package))
 
+;; install xcscope and set keybinds
+(require 'xcscope)
+(global-set-key "\C-cc" 'cscope-find-functions-calling-this-function)
+(global-set-key "\C-cs" 'cscope-find-this-symbol)
+
 ;; install and use evil-mode and evil-leader-mode
 (use-package evil
   :ensure t
@@ -37,6 +42,11 @@
     "h" '(lambda () (interactive)(split-window-vertically) (other-window 1))
     "v" '(lambda () (interactive)(split-window-horizontally) (other-window 1))
     "w" 'whitespace-cleanup))
+
+;; install and use ag
+(use-package ag
+  :ensure t
+  :init)
 
 ;; install and use helm
 (use-package helm
@@ -178,7 +188,7 @@ This functions should be added to the hooks of major modes for programming."
     ("8000c9a88af3ccf764f48298ebe1fbe21b5b8f9e8145fe2d54ce0bf7432d7156" "54cec2f091bd93068a31a655bb0a5e92e27936ea74f91a6c533b0165c48b42ac" "8b8807f6e466daa85aba588145eed801adb76e42598b4ac1ee9670de5823c0ae" "0fa58795c8758f5947a392e60f4753aa981dfcb99445ec686aa9feee7fcc60d1" "2e92f90b826767202f9cc692ad0416d30312d7e7edd25fdb312bc1cb3c364a9b" "0c09ed1221b9eb700b25edcf4dea2d52e231916d04f18dcf54fc854ffd92970d" "c3c0a3702e1d6c0373a0f6a557788dfd49ec9e66e753fb24493579859c8e95ab" default)))
  '(package-selected-packages
    (quote
-    (flycheck evil-magit magit git highlight-parentheses spacemacs use-package-chords buffer-move evil-leader linum-relative KeyChord helm Helm use-package evil-visual-mark-mode))))
+    (xcscope flycheck evil-magit magit git highlight-parentheses spacemacs use-package-chords buffer-move evil-leader linum-relative KeyChord helm Helm use-package evil-visual-mark-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
