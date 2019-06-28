@@ -100,6 +100,6 @@ alias glfp="git log --first-parent"
 
 # random things
 alias ccat='pygmentize -O style=monokai,linenos=1'
-alias emacs="emacsclient -nc"
-alias grep='grep --color=yes --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias emacs="emacsclient -nw -c"
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias svim="sudo -E vim"
