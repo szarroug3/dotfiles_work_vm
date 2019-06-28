@@ -11,7 +11,7 @@ python ~/bin/auto_xrandr.py ~/.config/monitors --force &
 srandrd python ~/bin/auto_xrandr.py ~/.config/monitors --force &
 sleep .1
 
-random-color-picker /home/samreen/.Xresources.d/walls/water_boat.jpg &
+random-color-picker /home/samreen/.Xresources.d/walls/abyss-wallpaper-autumn-forrest_2560x1440.jpg &
 compton --config ~/.config/compton.conf -b &
 unclutter &
 udiskie -F &
