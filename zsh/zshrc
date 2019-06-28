@@ -89,9 +89,16 @@ bindkey '^ ' autosuggest-accept
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# ag aliases
 alias ag='ag --color --color-line-number=95 --color-path=94 --color-match=31'
 alias agi='ag -i --color --color-line-number=95 --color-path=94 --color-match=31'
 alias agip='ag -i --color --color-line-number=95 --color-path=94 --color-match=31 -G ".py"'
+
+# git aliases
+alias glfp="git log --first-parent"
+
+# random things
 alias ccat='pygmentize -O style=monokai,linenos=1'
 alias emacs="emacsclient -nc"
 alias grep='grep --color=yes --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
