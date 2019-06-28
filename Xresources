@@ -51,6 +51,9 @@ URxvt.perl-ext-common: default,matcher,selection-to-clipboard,clipboard,keyboard
 URxvt.url-launcher: /usr/bin/vivaldi-stable
 URxvt.matcher.button: 1
 
+! automatically copy selected text
+URxvt.clipboard.autocopy: true
+
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
