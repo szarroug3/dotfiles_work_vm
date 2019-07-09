@@ -92,8 +92,8 @@ bindkey '^ ' autosuggest-accept
 
 # ag aliases
 alias ag='ag --color --color-line-number=95 --color-path=94 --color-match=31'
-alias agi='ag -i --color --color-line-number=95 --color-path=94 --color-match=31'
-alias agip='ag -i --color --color-line-number=95 --color-path=94 --color-match=31 -G ".py"'
+alias agi='ag -S --color --color-line-number=95 --color-path=94 --color-match=31'
+alias agip='ag -S --color --color-line-number=95 --color-path=94 --color-match=31 -G ".py"'
 
 # git aliases
 alias glfp="git log --first-parent"
