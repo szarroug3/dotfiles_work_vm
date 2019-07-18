@@ -13,12 +13,16 @@ do_not_submit/
 __*__
 .*pyc
 
+# work/scripts files
+copy_datastore_object.json
+
 # bti-nextgen folders
 ansible/playbooks/dev_keys
 datastore/local_settings.py
 scripts/utils/bti-nextgen
 target
 utils/bti-nextgen
+tools/MyLocalRepo
 
 # specific files
 cscope.files
