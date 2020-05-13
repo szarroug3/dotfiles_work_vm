@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast git-extras python pip sublime web-search chucknorris history lol zsh-output-highlighting django docker zsh-autosuggestions)
+plugins=(git gitfast git-extras python pip sublime web-search chucknorris history lol django docker kubectl)
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -93,13 +93,24 @@ bindkey '^ ' autosuggest-accept
 # ag aliases
 alias ag='ag --color --color-line-number=95 --color-path=94 --color-match=31'
 alias agi='ag -S --color --color-line-number=95 --color-path=94 --color-match=31'
+alias agit='ag -S --color --color-line-number=95 --color-path=94 --color-match=31 --ignore="test"'
 alias agip='ag -S --color --color-line-number=95 --color-path=94 --color-match=31 -G ".py"'
 
 # git aliases
-alias glfp="git log --first-parent"
+alias glfp="git log --first-parent --no-merges"
+alias gcane="git commit --amend --no-edit"
 
 # random things
 alias ccat='pygmentize -O style=monokai,linenos=1'
 alias emacs="emacsclient -nw -c"
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias svim="sudo -E vim"
+
+# kubectl
+alias kd='kubectl describe'
+alias kg='kubectl get'
+alias kdeleteforce='kubectl delete --force --grace-period=0'
+
+# openconnect
+alias vc='vpn connect'
+alias vdc='vpn disconnect'
