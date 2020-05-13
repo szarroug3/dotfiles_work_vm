@@ -100,6 +100,11 @@ macro index \\\\ "<vfolder-from-query>" "Search mailbox"
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
+# mark all as read
+macro index R \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all new as read"
+
 
 #------------------------------------------------------------
 # Color Settings
