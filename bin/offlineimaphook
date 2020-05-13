@@ -5,12 +5,10 @@ for mid in $(notmuch search --output=messages tag:notify); do
     notmuch tag +$(notmuch search --output=files $mid | cut -d "/" -f5 | sed 's/ //g') $mid 
 done
 
-# tag anything in the sent folder as SentItem if it's not already tagged
-
-# untag notify from emails in Conversation History and Sent Items
+# untag notify from emails in Sent Items and notify/unread from emails in INBOX
 notmuch tag --batch <<EOF
 -notify tag:SentItems
--notify tag:ConversationHistory
+-notify -unread tag:INBOX AND tag:unread
 +SentItems 'folder:"Sent Items"' and not tag:SentItems
 EOF
 

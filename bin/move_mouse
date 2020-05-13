@@ -1,0 +1,5 @@
+while true; do
+    xdotool mousemove_relative -- 0 5
+    xdotool mousemove_relative -- 0 -5
+    sleep 60
+done

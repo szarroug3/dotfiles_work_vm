@@ -1,5 +1,51 @@
-if [[ $1 ]]; then
-    (echo $1 | sudo hpvpn &) > /dev/null 2>&1
-else
-    sudo killall openvpn
-fi
+#!/bin/sh
+
+# Site Gateways
+# Atlanta ATC - atc01vpnra07e.atlanta.hp.com
+# Atlanta ITG - itg.remoteaccess.hp.com
+# Australia - australia.remoteaccess.hp.com
+# China - china.remoteaccess.hp.com
+# Germany - germany.remoteaccess.hp.com
+# India - india.remoteaccess.hp.com
+# Israel - israel.remoteaccess.hp.com
+# Japan - japan.remoteaccess.hp.com
+# Singapore - singapore.remoteaccess.hp.com
+# South Africa - safrica.remoteaccess.hp.com
+# United Kingdom - uk.remoteaccess.hp.com
+#
+# Regional Load Balanced Gateways
+# APJ Region Load Balanced - apj.remoteaccess.hp.com
+# EMEA Region Load Balanced - emea.remoteaccess.hp.com
+# AMS Region Load Balanced - ams.remoteaccess.hp.com
+# World Load Balanced - global.remoteaccess.hp.com
+
+GATEWAY=https://global.remoteaccess.hp.com
+CAFILE=/home/samreen/publicsslcerthpepulsevpnhpcom.crt
+USER=W60049381
+PIN=913725
+
+
+case $1 in
+    connect)
+        if [[ $2 ]]; then
+            (echo ${PIN}$2 | sudo openconnect -b -q --no-dtls --juniper ${GATEWAY} --cafile=${CAFILE} --user=${USER} --authgroup='OATH Passcode' --passwd-on-stdin &) > /dev/null 2>&1
+        else
+            stty -echo
+            echo -n 'OATH code: '
+            read passwd
+            stty echo
+            (echo ${PIN}${passwd} | sudo openconnect -b -q --no-dtls --juniper ${GATEWAY} --cafile=${CAFILE} --user=${USER} --authgroup='OATH Passcode' --passwd-on-stdin &) > /dev/null 2>&1
+        fi
+        ;;
+
+    disconnect)
+        sudo killall -s SIGINT openconnect > /dev/null 2>&1
+        # Needed for Network Manager integration
+#		nmcli connection delete tun0
+	;;
+
+    *)
+        echo 'Usage: vpn [connect|disconnect]'
+	exit 1
+	;;
+esac
