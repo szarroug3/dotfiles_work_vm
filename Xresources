@@ -48,7 +48,7 @@ URxvt.boldFont: xft:Fira Mono:pixelsize=12:antialias=true
 
 ! clickable urls
 URxvt.perl-ext-common: default,matcher,selection-to-clipboard,clipboard,keyboard-select
-URxvt.url-launcher: /usr/bin/vivaldi-stable
+URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
 ! automatically copy selected text
